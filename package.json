@@ -15,7 +15,7 @@
   "homepage": "https://bitbucket.org/adam19/personalwebsite#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.10.1",
-    "angular": "^1.5.8",
+    "angular": "^1.8.3",
     "angular-animate": "^1.7.8",
     "angular-ui-bootstrap": "^2.0.0",
     "angular-ui-router": "^1.0.22",
