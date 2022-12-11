@@ -20,7 +20,7 @@
     "angular-ui-bootstrap": "^2.0.0",
     "angular-ui-router": "^1.0.22",
     "bootstrap": "^3.4.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "jquery": "^3.4.1"
   }
 }
