@@ -1,275 +1,125 @@
 {
-	"Projects": [
-		{
-			"title": "Disney",
-			"state": "modal.disney",
-			"img": "img/DisneyLogo.jpg",
-			"leftContent": [
-				"During my time at The Walt Disney Company I've been in charge of handling updates for multiple legacy games and projects including updating mobile games for iPhone and Android, and transitioning an online tool for desktop use.",
-				"The first three projects I tackled involved upgrading Beauty and the Beast: Perfect Match, Inside Out: Thought Bubbles and Disney Dream Treats for the new, taller iPhone X layout. All of which were high-grossing titles for the company, and iPhone X support was desperately needed. I examined every screen in the game and developed methods to utilize the new layout. Each of the games were turned around with time to spare, and under budget.",
-				"Primarily my role at Disney involves updating multiple mobile games on the iOS and Android platforms. There are many reasons as to why upgrades are needed. Sometimes there are new requirements for iOS or Android. Sometimes Disney needs a game to meet new security and privacy policies. Whatever the need is, it's my responsibility to update the game.",
-				"Since the job requires updating a lot of titles in a short period, I've written several scripts to help speed up the development process. One of the games I worked on needed to have several bits of text updated in the Settings/About screen, but all of the text was lost from the archives, but the final version was stored in an image atlas. No raw text. I wrote a script that rendered the correct image atlas to an image file, ran the image through an OCR application, updated the text, recompiled the image atlas and shipped the game. Another set of scripts that save me time are post-build scripts which update Android manifest files and Gradle build scripts. Certain versions of Unity can't build proper Gradle projects since Gradle is still being updated. These post-build scripts have saved time updating pieces of data to fit Gradle's requirements on every build. This saves us hours of work!",
-				"My current team works closely with the business-development group, and occasionally there's a need to revive and refresh older games for modern platforms in a short time period. Many times we ran into issues involving asset loading, graphics and rendering problems from our archives. I've taken many steps to remedy these issues and get the game up and running again. There's been several instances that I've worked to remove bugs that exist in the live game. Every time we received a request, we have met the time and budget constraints with room to spare.",
-				"Disney Story Central was Disney's platform for delivering digital story books for children.  One of the largest undertakings for me was transitioning Disney Story Central (DSC) to a CDN and move the tools to an offline capacity. The servers were being repurposed for a new project, but several books and the DSC tools were still utilized by a couple of teams. The books were moved from a hosted environment with a PHP backend to a simple CDN server. A lot of the auto-play books did not work on the new CDN since the audio files required streaming, and the CDN couldn't support this. I worked to split and manage the audio files so the smaller pieces could be downloaded faster enabling the user to get into the book 10x faster! The backend tools were built using AngularJS, PHP and several Java applets. I built an offline application that used the Electron JS framework so eBooks could be converted to the necessary HTML/JS/CSS files. I also added a feature to preview the books straight from the application. This application alone saved several contracts and business deals with several external companies."
-			],
-			"rightContent": [
-				{
-					"type": "video",
-					"title": "Beauty and the Beast: Perfect Match",
-					"src": "vid/beauty_and_the_beast_perfect_match_official_launch_trailer_1080p.mp4",
-					"poster": "img/posters/beauty_and_the_beast_perfect_match_official_launch_trailer.png"
-				},
-				{
-					"type": "video",
-					"title": "Disney Dream Treats",
-					"src": "vid/disney_dream_treats_1080p.mp4",
-					"poster": "img/posters/disney_dream_treats.png"
-				}
-			],
-			"tags": [
-				"C#", "Unity", "Mobile", "Web", "NodeJS", "AngularJS", "Professional"
-			]
-		},
-		{
-			"title": "Raw Data (Oculus Rift, HTC Vive, PSVR)",
-			"state": "modal.rawdata",
-			"img": "img/raw-data.jpg",
-			"leftContent": [
-				"I was one of a couple engineers on the hit VR game Raw Data for the PC and PS4 released in 2017. During my time on the project I was responsible for multiple aspects of the game including analytics reporting, achievements, several critical gameplay elements, three different demos, and last but not least, Raw Data Arcade!",
-				"Early in development, I was in charge of implementing analytics and reporting for Raw Data and the underlying Survios platform. We used an external data management company that I worked with to develop a UE4 plugin that sent REST calls to their backend servers. During gameplay I would aggregate all of the bits of data such as number of kills, number of deaths,time played, etc. and send the data during level transitions. If the game crashed or internet was lost, all of the data was still on the player's machine waiting to be reported. It was a flexible and reliable system that made it's way into several other Survios titles. All of this data was extremely valuable and was used to tweak and enhance gameplay for the for the final release.",
-				"When the majority of the game was complete I was responsible for implementing Achievements for the multiple platforms Raw Data was released on including Steam, Oculus Home and Trophies for the PlayStation. Since the platforms track Achievement data in vastly different ways, we settled on storing all of the data locally, and reporting the unlocked Achievement to the platform once the threshold was reached. This made unlocking Achievements simple to implement for any platform. The thesholds were defined using a simple data container in the UE4 Editor. Designers were able to tweak the unlock requirements very easily and never needed to consult an engineer to make updates.",
-				"Throughout my time at Survios I built three different demos of the game which were deployed through different avenues. The first demo I built was for Valve to show off their HTC Vive headset in retail locations including Best Buy and Gamestop. The second demo I developed was used during Survios's largest E3 presence ever in 2017. Lines wrapped around the booth where attendees waited for, on occasion, two hours to play! The last demo I built for Raw Data now lives on the PSVR Demo Disk that came with the initial PSVR kits.",
-				"One of the largest undertakings that I took over was Raw Data Arcade. I worked with a game designer to determine how the game should flow in a timed Arcade environment versus a typical home environment. We also gave arcade managers an easy to use interface written in Unreal Motion Graphics (UMG) to alter aspects of the game including timers, available heros, unlocks, levels, etc. Every VR arcade wanted to provide their own customized experience for their customers. In the end we delivered an outstanding product that's now a headliner in over 1000 arcades world-wide!"
-			],
-			"rightContent": [
-				{
-					"type": "video",
-					"title": "Raw Data Trailer",
-					"src": "vid/raw_data_official_launch_trailer_1080p.mp4",
-					"poster": "img/posters/raw_data_official_launch_trailer.png"
-				}
-			],
-			"tags": [
-				"Unreal Engine 4", "UE4", "C++", "VR", "Oculus", "Playstation", "Professional"
-			]
-		},
-		{
-			"title": "Visual Analytix (Angular JS, Node JS, Mongo DB)",
-			"state": "modal.vax",
-			"img": "img/VAx/VAx.png",
-			"leftContent": [
-				"Visual Analytix is a systems engineering analysis tool built for government operations. It's purpose is for determining the best way to achieve a goal scaling from small detailed systems all the way to large operations involving large numbers of people.",
-            	"This was the first project my consulting company took on. I took over the project as the lead software engineer working along-side several systems engineers. A large part of my development process was working with the systems engineers to find out their workflow when analyzing systems, and then taking those details and implementing them in software.",
-				"The application is web-based with a backend written in NodeJS with a MongoDB database. The front-end needed to be re-written and optimized piece-by-piece since the application transitioned through many hands and iterations with very little cohesion. It evolved to use AngularJS and Google Material frameworks to ease development and code reuse.",
-				"A portion of VAx allows uploading, viewing and modifying 3D CAD models. For the initial prototypes I implemented a viewer in WebGL using ThreeJS and a couple of libraries to support OBJ and FBX files. One of the key features was to add/remove/swap parts on a model. I added an interface along-side the viewer to toggle the different parts using a dynamic menu listing the available pieces.",
-				"One of the major features of VAx is to manage all of the users. This includes project managers, engineers, accounting, etc. all the way down to the final end user of the system being analyzed. I built a very robust user-management system which allowed admins and project managers to set up any combination of privileges for their project. Since this can get confusing, a security flag chart displays what is available and unavailable for each user or user-group. Security was guaranteed using a combination of privilege checks, cookies and some local file storage support in tandem with periodic user account checks with the backend."
-			],
-			"rightContent": [
-				{
-					"type": "image",
-					"title": "Project Component Interface",
-					"url": "../img/VAx/VAx001.png"
-				},
-				{
-					"type": "image",
-					"title": "Entity Interaction Interface",
-					"url": "../img/VAx/VAx002.png"
-				},
-				{
-					"type": "image",
-					"title": "Interaction Matrix",
-					"url": "../img/VAx/VAx003.png"
-				}
-			],
-			"tags": [
-				"Web", "AngularJS", "NodeJS", "Professional"
-			]
-		},
-		{
-			"title": "XCom 2 (PC/XB1/PS4)",
-			"state": "modal.xcom2",
-			"img": "img/xcom2.png",
-			"leftContent": [
-				"I was a part of the initial development of XCom 2 for the PC, and for the development of the console versions for the Xbox One and the Playstation 4. During the PC development I was responsible for several portions of the game including gameplay and UI development. I implemented several weapons for the single-player campaign including the Triple-Shot and the Saturation-Fire.",
-				"<b>Triple-Shot</b> is an ability for the Sniper class of soldier where they can use their pistol to pop off 3 shots on an enemy with high accuracy. The <b>Saturation-Fire</b> (aka Shredder-Fire) ability was one of my favorites to develop. The Grenadier class of soldier can use their chain-gun to fire a hail-storm of bullets in a cone shape damaging every enemy and all cover within it.",
-				"I also improved some aspects of the UI to enhance the developers workflow. Most of the UI for debugging follows the typical debug text built into Unreal Engine 3. The color choices started making reading increasingly difficult in certain scenarios. I took it upon myself to add a drop shadow to the text by rendering black text followed by the regular text offset by 1 pixel on the X and Y axis. This increased the texts visibility quite a bit.",
-				"During the console development I was in charge of disc installations. This was a little problematic due to the games procedural nature. Current-gen consoles require an initial chunk of the game to be immediately available for the player, so they can jump in and start playing right away. We marked the tutorial mission and the Avenger to be loaded first, and blocked the loading of any other assets until the entire game was finished downloading. This same logic was applied to the disc based game also. I managed the downloads by watching internal systems made available by the OS to watch and wait until the entire game was installed. Once complete all of the locks initially placed on assets were removed.",
-				"I was also in charge of modifying and updating the Unreal Frontend tools. Since Unreal Engine 3 was created for the previous generation of consoles there were development features missing for current-gen. I added a couple of buttons to the UI, and several new RPCs to launch tools made available in the console SDKs."
-			],
-			"rightContent": [
-				{
-					"type": "video",
-					"title": "XCom 2 Console Announcement",
-					"src": "vid/xcom2_console_announcement_trailer_1080p.mp4",
-					"poster": "img/posters/xcom2_console_announcement_trailer.png"
-				},
-				{
-					"type": "video",
-					"title": "Saturation-Fire",
-					"src": "vid/xcom2_grenadier_class_skill_tree_breakdown_preview_gameplay_720p.mp4",
-					"poster": "img/posters/xcom2_grenadier_class_skill_tree_breakdown_preview_gameplay.png",
-					"startTime": "285"
-				}
-			],
-			"tags": [
-				"C++", "Tools", "Unreal Engine 3", "UE3", "Xbox One", "PlayStation 4", "Professional"
-			]
-		},
-		{
-			"title": "VR 360 Video Player (Gear VR)",
-			"state": "modal.adultswim",
-			"img": "img/AdultSwim-Final.png",
-			"leftContent": [
-				"I was tasked with developing a new 360 degree video player for the Samsung Gear VR. Our video team would stitch together 4K movies that I would then procedurally map to a sphere in OpenGL. The viewer would be positioned in the center of the sphere, so they could view the movie all around them. The system supported swapping between multiple spherical mapping methods including Longitude/Latitude and Top-down Radial Projection. The first movie we worked with was Adult Swim's Virtual Brainload, which can be viewed to the right.",
-				"The movies were mapped to the sphere procedurally to keep file sizes low. The Longitude/Latitude mapping was fairly simple to implement as it used a set angle for the pitch between rows of quads on the final mesh. This did lead to some artifacts on the top and bottom of the sphere, but this was remedied by applying a simple color blend at the top-most and bottom-most vertices. The Top-down Radial Projection was generated procedurally also. Instead of creating the rows of quads based on a set pitch angle, they were spaced evenly based on the top-down projection of the radius. Normally this could lead to distortions on the bottom edges due to the different sized quads, but the video feeds I was provided were 4K and circular in nature, so the artifacts were non-existent.",
-				"Another feature that was included in the player was binaural audio playback. The video team recorded audio in a manner that was slightly different than a normal stereo recording. Instead, an array of microphones recorded directional audio. In the player I had to manage up to 8 audio streams and mix between them based on the viewing direction. This led to a lot of different prototypes and experiments to find a good feel for the audio playback. Some of them involved different mixes of 'stereo' mixes, and some others involved running the audio streams through different filters to achieve different effects."
-			],
-			"rightContent": [
-				{
-					"type": "youtube",
-					"title": "Adult Swim's Virtual Brainload",
-					"code": "SmIun5fWpeg"
-				},
-				{
-					"type": "link",
-					"title": "Adult Swim's Virtual Brainload",
-					"url": "https://www.transportvr.com/virtual-brainload"
-				},
-				{
-					"type": "link",
-					"title": "UploadVR's review of Virtual Brainload",
-					"url": "http://uploadvr.com/melt-your-mind-with-wevrs-virtual-brainload-made-for-adult-swim/"
-				}
-			],
-			"tags": [
-				"Oculus Rift", "Gear VR", "VR", "C++", "Android", "Professional"
-			]
-		},
-		{
-			"title": "theBlu Oculus Rift Prototype (Unity3D)",
-			"state": "modal.theblu",
-			"img": "img/theblu.jpg",
-			"leftContent": [
-				"Taking theBlu and getting it ready for the Oculus Rift was my first project with WeMo Labs. The initial product was developed in Unity3D, and fortunately had support for the Oculus Rift dev-kits. I was responsible for changing the static camera system to a dynamic camera system.",
-				"I initially prototyped move mechanics using the players viewing direction and an Xbox 360 controller. I enjoyed the freedom that was granted by the new controls, but this was a time very early in modern virtual reality, so needless to say there were several people that were made a little queasy by this. We experimented with several different move mechanics, but ultimately decided to stick with a static camera position. This made a lot of people happy.",			
-				"I was also responsible for developing one of the first UIs in virtual reality. The mouse and Xbox controllers were both initial input selection systems we experimented with, but we eventually settled on a selection system based on the viewing direction. This made it very easy for end users to switch between different habitats and views."
-			],
-			"rightContent": [
-				{
-					"type": "youtube",
-					"title": "WEVR's theBlu",
-					"code": "hUpkVa4UkMg"
-				}
-			],
-			"tags": [
-				"Unity", "C#", "Oculus Rift", "VR", "Professional"
-			]
-		},
-		{
-			"title": "Bloom (Unity3D)",
-			"state": "modal.bloom",
-			"img": "img/bloom.png",
-			"leftContent": [
-				"Bloom is a 2.5D adventure platformer where you play as a seedling named Sprout who wields the powers of nature in order to reclaim earth from the dangerous machines who have taken over. The game was a year-long project assembled as a final for senior-level Masters and Undergrad students at USC. We initially targeted the PS Vita only, but halfway through the project we decided to make the game cross-platform and ended up supporting Windows, OSX, Android and iOS devices.",
-				"I played multiple roles on the team during the year long development. Initially I was one of the engineers in charge of researching and developing different graphics features. This was during the initial release of Direct3D 11 in Unity, and we were sure the PS Vita would support a similar feature set, so I was working to figure out what would be graphically feasible in our game. I was able to implement a texture-based 'million-particle' system in Unity.",
-				"After the initial research period was over (Summer 2013) I moved into a more generalist role to support the team in different ways. I implemented a couple of effects for Sprout such as jumping and attacking enemies. Later I assisted the Art Director to help manage the incoming art assets. I was responsible for making sure the assets would import into Unity with ease, and without error. This required me to be in contact with the on-site engineers as well as the remote artists."
-			],
-			"rightContent": [
-				{
-					"type": "video",
-					"title": "Bloom Trailer",
-					"src": "vid/bloom_gameplay_trailer_1080p.mp4",
-					"poster": "img/posters/bloom_gameplay_trailer.png"
-				}
-			],
-			"tags": [
-				"Unity", "C#", "Windows", "Android", "Mobile", "Management", "School"
-			]
-		},
-		{
-			"title": "Streets of India (iPad/Unity3D)",
-			"state": "modal.streetsofindia",
-			"img": "img/StreetsOfIndia.png",
-			"leftContent": [
-				"Streets of India was a mobile game project I lead during the second semester of my Masters program at USC. The team consisted of myself and 5 other students working to complete the game over a semester. The entire game was developed in Unity3D for the iPad.",
-				"The game is a modern take on an old classic, Frogger. The player must guide their character through the busy and hectic streets of India to disarm and remove bombs set at famous Indian landmarks. What makes this game unique is that it's completely 3D, and the manner in which the cars are generated. Normally in this genre there are lanes of 'traffic.' Whether it's a bunch of cars, or a bunch of logs the lanes are predefined and obvious to the player. We added an extra bit of challenge by removing the lanes and let the vehicles spawn and roam freely in the streets. This made it a little more hectic and created tension for the player. Overall it was well received by the class, and other students in the program. It was unfortunately never released to the App Store."
-			],
-			"rightContent": [
-
-			],
-			"tags": [
-				"Unity", "C#", "Mobile", "Management", "School"
-			]
-		},
-		{
-			"title": "Software Rasterizer (C++)",
-			"state": "modal.rasterizer",
-			"img": "img/rasterizer.png",
-			"leftContent": [
-				"During my first semester of my Masters program at USC I was enrolled in a graphics development course where we learned the typical rendering pipeline for rasterizing triangles. Our assignments followed the progression of a software renderer where we integrated full transform and lighting for meshes and cameras. We also implemented Phong lighting and perspective correct texturing.",
-				"The application was developed using only C++ and boiler-plate Windows MFC."
-			],
-			"rightContent": [
-				{
-					"type": "image",
-					"title": "Per-Pixel Shading",
-					"url": "../img/rasterizer.png"
-				}
-			],
-			"tags": [
-				"C++", "Windows", "Student"
-			]
-		},
-		{
-			"title": "Marching Cubes (C++/OpenGL)",
-			"state": "modal.marchingcubes",
-			"img": "img/marchingcubes.png",
-			"leftContent": [
-				"During my first semester of my Masters program at USC I was enrolled in a graphics development course where we learned the typical rendering pipeline for rasterizing triangles. Our final project was to find any white paper and implement it. Myself and a couple of fellow students found a paper describing the Marching-Cubes algorithm.",
-				"We started by generating three-dimensional Perlin noise. This provided us with a 3D point-cloud of varying values. We filtered the values by an arbitrary value of 0.5, and discarded the lower values. The remaining points were run through our Marching-Cubes algorithm. We checked each cell in the cloud to see if it had neighboring cells that were occupied. If a cell had neighbors on all sides we would skip it. If it had some empty spots surrounding it we would mark it as a surface. We did a final pass over the data and generated triangles based on whether or not they were surfaces points. There were 256 possible permutations of the final geometry for a cell, but we were able to narrow it down to 8 with different rotations.",
-				"Once the geometry was generated we would export it as an OBJ file so we could examine it in Maya. We also took the geometry and compiled it into a series of triangle lists that we could render in OpenGL. I added controls for the Xbox 360 controller so the user could fly through the final mesh generated from the 3D Perlin noise.",
-				"The application was developed using only C++ and OpenGL."
-			],
-			"rightContent": [
-				{
-					"type": "image",
-					"title": "3D Point Cloud",
-					"url": "../img/MarchingCubes/PointCloud.png"
-				},
-				{
-					"type": "image",
-					"title": "Mesh Imported into Maya",
-					"url": "../img/MarchingCubes/ModelInMaya.png"
-				},
-				{
-					"type": "image",
-					"title": "",
-					"url": "../img/marchingcubes.png"
-				}
-			],
-			"tags": [
-				"C++", "OpenGL", "Student"
-			]
-		},
-		{
-			"title": "Skeletal Animation (C++/OpenGL)",
-			"state": "modal.skeletalanim",
-			"img": "img/skeletalanim.png",
-			"leftContent": [
-				"During my second semester of my Masters program at USC I was enrolled in a graphics and animation course where we learned about different animation and effects systems in the graphics world. One of the projects involved skeletal animation. We were given a set of uniform animation data where every frame was a keyframe.",
-				"Next we had to implement different interpolation systems including Euler angles and Quaternions. We had to invesigate what happened when large chunks of keyframes were skipped. For the most part the quaternions respected the original animation, but the Euler angle implementations consistantly became gimbal-locked, and would either explode, or end up in odd final poses.",
-				"This project was implemented using C++ and OpenGL."
-			],
-			"rightContent": [
-				{
-					"type": "image",
-					"title": "Animation Frame",
-					"url": "../img/skeletalanim.png"
-				}
-			],
-			"tags": [
-				"C++", "OpenGL", "Student"
-			]
-		}
-	]
+  "projects": [
+    {
+      "id": "raw-data",
+      "featured": true,
+      "title": "RAW DATA",
+      "studio": "Survios",
+      "year": "2017",
+      "role": "Gameplay Developer",
+      "platforms": "SteamVR / PSVR",
+      "previewLabel": "RAW\nDATA",
+      "previewSub": "SURVIOS · VR · 2017",
+      "previewColor": "#a78bfa",
+      "previewGlow": "rgba(167,139,250,0.8)",
+      "previewTheme": "vr",
+      "chips": [
+        {"label": "Unity VR", "style": "accent"},
+        {"label": "Room-Scale", "style": "teal"},
+        {"label": "Combat Systems", "style": "pink"}
+      ],
+      "tagline": "FEATURED // LANDMARK TITLE",
+      "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible — defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
+      "expanded": {
+        "problem": "Room-scale VR combat had no established conventions. Everything from locomotion to weapon feel to spatial audio had to be invented from scratch in a medium that was weeks old.",
+        "solution": "Built core gameplay systems including physics-driven melee, IK-resolved body presence, and a spatial audio combat framework. Iterated constantly with playtests to dial in the feel that made Raw Data feel real rather than gimmicky.",
+        "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
+        "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
+        "trailer": "",
+        "images": [],
+        "titleImage": ""
+      }
+    },
+    {
+      "id": "disney",
+      "featured": false,
+      "title": "DISNEY PROJECTS",
+      "studio": "Disney",
+      "year": "Various",
+      "role": "Game Developer",
+      "platforms": "Multi-Platform",
+      "previewLabel": "DISNEY",
+      "previewSub": "ENTERPRISE SCALE · PC/CONSOLE",
+      "previewColor": "#f472b6",
+      "previewGlow": "rgba(244,114,182,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "accent"},
+        {"label": "Disney", "style": "pink"},
+        {"label": "Multi-Platform", "style": ""}
+      ],
+      "tagline": null,
+      "summary": "Enterprise-scale production with IP constraints most studios never face. Learned to solve problems inside systems you can't just rebuild — delivering across multiple titles with strict brand and quality bars.",
+      "expanded": {
+        "problem": "Disney IP titles operate under constraints most game studios never encounter — brand guidelines, legal review pipelines, cross-department approvals — all while maintaining shipping velocity.",
+        "solution": "Developed tooling and workflow patterns that allowed rapid iteration within strict constraints. Built editor extensions that automated compliance checks, reducing review cycle time significantly.",
+        "outcome": "Shipped multiple titles across platforms while maintaining Disney's quality and brand standards. Built internal reputation for finding creative solutions within seemingly rigid systems.",
+        "tech": ["Unity", "Internal Disney SDKs", "Multi-Platform", "Editor Tooling", "Pipeline Automation"],
+        "trailer": "",
+        "images": [],
+        "titleImage": ""
+      }
+    },
+    {
+      "id": "iron-pact",
+      "featured": false,
+      "title": "IRON PACT",
+      "studio": "Independent",
+      "year": "2023",
+      "role": "Lead Developer",
+      "platforms": "iOS / Android",
+      "previewLabel": "IRON\nPACT",
+      "previewSub": "UNITY · iOS / ANDROID · 2023",
+      "previewColor": "#2dd4bf",
+      "previewGlow": "rgba(45,212,191,0.7)",
+      "previewTheme": "mobile",
+      "chips": [
+        {"label": "Unity", "style": "teal"},
+        {"label": "iOS / Android", "style": ""},
+        {"label": "Live Service", "style": ""}
+      ],
+      "tagline": null,
+      "summary": "Content updates took two weeks to balance and ship. Built a data-driven pipeline that cut it to three days without touching the build. 2.4M downloads, 4.7★ rating.",
+      "expanded": {
+        "problem": "The content team needed 2+ weeks per balance update, requiring a full engineer to touch the build each time. At live-service velocity, that was unsustainable.",
+        "solution": "Architected a fully data-driven content pipeline — all game balance, economy values, and content gating driven from remote JSON configs. Built a custom editor dashboard for non-engineers to author, validate, and push updates without a code deploy.",
+        "outcome": "Update cycle dropped from 14 days to 3. The content team became self-sufficient. 2.4M downloads and a 4.7★ App Store rating across iOS and Android.",
+        "tech": ["Unity", "Remote Config", "C#", "Custom Editor Tools", "iOS", "Android", "Analytics"],
+        "trailer": "",
+        "images": [],
+        "titleImage": ""
+      }
+    },
+    {
+      "id": "neon-depths",
+      "featured": false,
+      "title": "NEON DEPTHS",
+      "studio": "Solo",
+      "year": "2022",
+      "role": "Solo Developer",
+      "platforms": "Browser / Itch.io",
+      "previewLabel": "NEON\nDEPTHS",
+      "previewSub": "UNITY WEBGL · BROWSER · 2022",
+      "previewColor": "#a78bfa",
+      "previewGlow": "rgba(167,139,250,0.6)",
+      "previewTheme": "web",
+      "chips": [
+        {"label": "Unity WebGL", "style": "accent"},
+        {"label": "Browser", "style": ""},
+        {"label": "Jam Winner", "style": "teal"}
+      ],
+      "tagline": null,
+      "summary": "WebGL builds were bloated and slow. Engineered a custom streaming pipeline and WASM compression strategy to hit sub-8s load time. Game Jam 1st place.",
+      "expanded": {
+        "problem": "Unity WebGL builds were landing at 80MB+ with 30+ second load times on average connections — a death sentence for a game jam entry that needs to hook players in seconds.",
+        "solution": "Audited the full asset pipeline, implemented addressable asset streaming, stripped unused engine modules, and applied Brotli compression to WASM. Rebuilt the loading screen as a playable micro-experience to mask remaining load time.",
+        "outcome": "Final build: under 12MB. Load time: sub-8 seconds on average connections. Placed 1st overall in the jam across 340+ entries.",
+        "tech": ["Unity WebGL", "Addressables", "WASM Optimization", "Brotli Compression", "C#", "GLSL"],
+        "trailer": "",
+        "images": [],
+        "titleImage": ""
+      }
+    }
+  ]
 }
+
