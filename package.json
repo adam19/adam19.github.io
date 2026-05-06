@@ -1,6 +1,6 @@
 {
   "name": "personalwebsite",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A simple website to showcase my projects",
   "main": "index.js",
   "scripts": {
@@ -8,19 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/adam19/personalwebsite.git"
+    "url": "git@github.com:adam19/adam19.github.io.git"
   },
   "author": "Adam Smith",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/adam19/personalwebsite#readme",
+  "homepage": "https://github.com/adam19/adam19.github.io#readme",
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.10.1",
-    "angular": "^1.8.3",
-    "angular-animate": "^1.7.8",
-    "angular-ui-bootstrap": "^2.0.0",
-    "angular-ui-router": "^1.0.22",
-    "bootstrap": "^3.4.1",
-    "express": "^4.18.2",
-    "jquery": "^3.4.1"
+    "express": "^4.18.2"
   }
 }
