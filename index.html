@@ -364,11 +364,46 @@ function buildCard(project, idx){
   const wide = true; // render all cards using the featured/wide layout
   const previewLines = project.previewLabel.split('\n').join('<br>');
   const reverse = (idx % 2) === 1; // alternate reverse for odd indexes
-  const gridStyle = project.previewTheme === 'disney'
-    ? `background-image:linear-gradient(rgba(244,114,182,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,114,182,.04) 1px,transparent 1px)`
-    : project.previewTheme === 'mobile'
-    ? `background-image:linear-gradient(rgba(45,212,191,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(45,212,191,.05) 1px,transparent 1px)`
-    : '';
+
+  // Derive RGB from previewGlow (preferred) or previewColor (hex) to tint grid and theme
+  let rgb = null;
+  if(project.previewGlow){
+    const m = project.previewGlow.match(/rgba?\(([^)]+)\)/);
+    if(m) rgb = m[1].split(',').slice(0,3).map(s=>s.trim()).join(',');
+  }
+  if(!rgb && project.previewColor){
+    // hex to rgb
+    const hex = project.previewColor.replace('#','');
+    if(hex.length===3){
+      rgb = hex.split('').map(h=>parseInt(h+h,16)).join(',');
+    } else if(hex.length===6){
+      rgb = [hex.slice(0,2),hex.slice(2,4),hex.slice(4,6)].map(h=>parseInt(h,16)).join(',');
+    }
+  }
+
+  // Build inline styles: theme background on .proj-preview and grid overlay on .prev-grid
+  let previewStyle = '';
+  let gridStyle = '';
+  if(rgb){
+    // stronger grid alpha so it's visible against gradients
+    gridStyle = `background-image:linear-gradient(rgba(${rgb},0.12) 1px,transparent 1px),linear-gradient(90deg,rgba(${rgb},0.12) 1px,transparent 1px)`;
+    // theme background: subtle gradient using the tint and the previewColor as anchor
+    if(project.previewColor){
+      // Darken the previewColor with a subtle black overlay so the background isn't blown out
+      previewStyle = `background:linear-gradient(135deg, rgba(0,0,0,0.85), rgba(0,0,0,0.62)), ${project.previewColor};`;
+    } else {
+      // fallback: use a very subtle tint when only RGB is available
+      previewStyle = `background:linear-gradient(135deg, rgba(${rgb},0.06), rgba(${rgb},0.02));`;
+    }
+  } else {
+    // fallback to earlier theme-based small tints
+    previewStyle = project.previewTheme === 'disney'
+      ? `background:linear-gradient(135deg,#1a0800,#2a1000 50%,#100500)`
+      : project.previewTheme === 'mobile'
+      ? `background:linear-gradient(135deg,#001a10,#002a18 50%,#001508)`
+      : '';
+    gridStyle = '';
+  }
 
   const featuredTag = project.tagline
     ? `<div class="featured-tag">${project.tagline}</div>` : '';
@@ -396,9 +431,9 @@ function buildCard(project, idx){
   return `
     <div class="${classes.join(' ')}" data-id="${project.id}">
       <div class="proj-media">
-        <div class="proj-preview prev-${project.previewTheme}">
+        <div class="proj-preview prev-${project.previewTheme}" style="${previewStyle}">
           <div class="prev-grid" style="${gridStyle}"></div>
-          <div class="prev-label" style="color:${project.previewColor};text-shadow:0 0 40px ${project.previewGlow}">
+          <div class="prev-label" style="color:${project.previewColor};text-shadow:0 0 12px rgba(255,255,255,0.06), 0 0 40px ${project.previewGlow}">
             ${previewLines}<span class="prev-sub">${project.previewSub}</span>
           </div>
         </div>

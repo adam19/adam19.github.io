@@ -19,20 +19,46 @@
 }
 
 :root {
-  --white:         #ffffff;
-  --offwhite:      rgba(255,255,255,0.85);
-  --dim:           rgba(255,255,255,0.45);
-  --dimmer:        rgba(255,255,255,0.52);
-  --accent:        #a78bfa;
-  --accent2:       #f472b6;
-  --teal:          #2dd4bf;
-  --panel:         rgba(255,255,255,0.07);
-  --panel-hover:   rgba(255,255,255,0.11);
-  --panel-border:  rgba(255,255,255,0.13);
-  --expanded-bg:   rgba(8,5,24,0.92);
-  --font-display:  'Luckiest Guy', 'Burbank Small', cursive;
-  --font-ui:       'Burbank Small', 'Barlow Condensed', 'Arial Narrow', sans-serif;
-  --font-mono:     'Space Mono', monospace;
+	--white:         #ffffff;
+	--offwhite:      rgba(255,255,255,0.85);
+	--dim:           rgba(255,255,255,0.45);
+	--dimmer:        rgba(255,255,255,0.52);
+	--accent:        #a78bfa;
+	--accent2:       #f472b6;
+	--teal:          #2dd4bf;
+	--panel:         rgba(255,255,255,0.07);
+	--panel-hover:   rgba(255,255,255,0.11);
+	--panel-border:  rgba(255,255,255,0.13);
+	--expanded-bg:   rgba(8,5,24,0.92);
+	--font-display:  'Luckiest Guy', 'Burbank Small', cursive;
+	--font-ui:       'Burbank Small', 'Barlow Condensed', 'Arial Narrow', sans-serif;
+	--font-mono:     'Space Mono', monospace;
+
+	/* Gaming Platform Colors */
+	--ps-blue:        #0070d1;   /* PlayStation official blue */
+	--xbox-green:     #107c10;   /* Xbox official green */
+	--nintendo-red:   #e4000f;   /* Nintendo official red */
+	--steam-blue:     #1b2838;   /* Steam dark blue */
+	--steam-teal:     #66c0f4;   /* Steam light accent */
+	--oculus-grey:    #6b7280;   /* Meta/Quest neutral */
+
+	/* Engine Colors */
+	--ue-yellow:      #f7d00c;   /* Unreal Engine official yellow */
+	--unity-black:    #222222;   /* Unity wordmark black (useful for badges) */
+	--unity-light:    #d4d4d4;   /* Unity light grey accent */
+	--godot-blue:     #478cbf;   /* Godot Engine blue */
+
+	/* Platform / OS */
+	--ios-blue:       #007aff;   /* Apple iOS blue */
+	--android-green:  #3ddc84;   /* Android official green */
+	--pc-silver:      #c0c0c0;   /* Generic PC/Windows silver */
+
+	/* Studio / Industry */
+	--epic-red:       #c4162a;   /* Epic Games red */
+	--discord-purple: #5865f2;   /* Discord blurple — useful for community links */
+	--itch-red:       #fa5c5c;   /* Itch.io red */
+	--github-white:   #f0f6fc;   /* GitHub on dark backgrounds */
+	--disney-blue:    #113ccf;   /* Disney official blue */
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -316,7 +342,7 @@ section { padding:110px 52px; position:relative; }
 	linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
 	background-size:32px 32px;
 	transform:perspective(300px) rotateX(25deg) scale(1.4);
-	transform-origin:50% 65%;
+	transform-origin:50% 45%;
 	animation:gdrift 5s linear infinite;
 }
 @keyframes gdrift{0%{background-position:0 0}100%{background-position:0 32px}}
@@ -327,10 +353,15 @@ section { padding:110px 52px; position:relative; }
 .prev-web		{ background:linear-gradient(135deg,#0a0a20,#141430 50%,#080818); }
 
 .prev-label {
-	position:relative; z-index:2; text-align:center;
+	position:relative; z-index:4; text-align:center;
 	font-family:var(--font-display); font-size:38px;
 	letter-spacing:.08em; line-height:1; white-space:pre-line;
-	text-shadow:0 0 40px currentColor;
+	/* subtle white rim + colored glow for better contrast on darkened backgrounds */
+	-webkit-text-stroke: 0.6px rgba(255,255,255,0.06);
+	text-shadow:
+	  0 1px 0 rgba(255,255,255,0.06), /* tiny white lift */
+	  0 0 12px rgba(255,255,255,0.06), /* soft white halo */
+	  0 0 40px currentColor; /* colored glow from inline style */
 }
 .prev-sub {
 	font-family:var(--font-mono); font-size:8px;
@@ -361,6 +392,24 @@ section { padding:110px 52px; position:relative; }
 .chip.accent { border-color:rgba(167,139,250,.4); color:var(--accent); }
 .chip.teal	 { border-color:rgba(45,212,191,.35); color:var(--teal); }
 .chip.pink	 { border-color:rgba(244,114,182,.35); color:var(--accent2); }
+.chip.ps-blue { border-color:rgba(0,112,209,.4); color:var(--ps-blue); }
+.chip.xbox-green { border-color:rgba(16,124,16,.4); color:var(--xbox-green); }
+.chip.nintendo-red { border-color:rgba(228,0,15,.4); color:var(--nintendo-red); }
+.chip.steam-blue { border-color:rgba(27,40,56,.4); color:var(--steam-blue); }
+.chip.steam-teal { border-color:rgba(102,192,244,.4); color:var(--steam-teal); }
+.chip.oculus-grey { border-color:rgba(107,114,128,.4); color:var(--oculus-grey); }
+.chip.ue-yellow { border-color:rgba(247,208,12,.4); color:var(--ue-yellow); }
+.chip.unity-black { border-color:rgba(34,34,34,.4); color:var(--unity-black); }
+.chip.unity-light { border-color:rgba(212,212,212,.4); color:var(--unity-light); }
+.chip.godot-blue { border-color:rgba(71,140,191,.4); color:var(--godot-blue); }
+.chip.ios-blue { border-color:rgba(0,122,255,.4); color:var(--ios-blue); }
+.chip.android-green { border-color:rgba(61,220,132,.4); color:var(--android-green); }
+.chip.pc-silver { border-color:rgba(192,192,192,.4); color:var(--pc-silver); }
+.chip.epic-red { border-color:rgba(196,22,42,.4); color:var(--epic-red); }
+.chip.discord-purple { border-color:rgba(88,101,242,.4); color:var(--discord-purple); }
+.chip.itch-red { border-color:rgba(250,92,92,.4); color:var(--itch-red); }
+.chip.github-white { border-color:rgba(240,246,252,.4); color:var(--github-white); }
+.chip.disney-blue { border-color:rgba(17,60,207,.4); color:var(--disney-blue); }
 
 .proj-role {
 	font-family:var(--font-mono); font-size:9px;
