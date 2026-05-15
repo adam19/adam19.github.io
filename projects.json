@@ -1,8 +1,44 @@
 {
   "projects": [
     {
+      "id": "disney",
+      "featured": false,
+      "title": "DISNEY PROJECTS",
+      "studio": "Disney",
+      "year": "2018-2026",
+      "role": "Senior Game Developer",
+      "platforms": "Multi-Platform",
+      "previewLabel": "DISNEY",
+      "previewSub": "ENTERPRISE SCALE · MOBILE/PC/CONSOLE",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "unity-light"},
+        {"label": "Uneal Engine 4", "style": "ue-yellow"},
+        {"label": "PlayStation", "style": "ps-blue"},
+        {"label": "Xbox", "style": "xbox-green"},
+        {"label": "Disney", "style": "disney-blue"},
+        {"label": "Internal Tooling", "style": "teal"},
+        {"label": "HTML5", "style": "html5-orange"},
+        {"label": "Node.js", "style": "nodejs-green"},
+        {"label": "Pipeline Automation", "style": "accent"}
+      ],
+      "tagline": null,
+      "summary": "Enterprise-scale production with IP constraints most studios never face. Learned to solve problems inside systems you can't just rebuild — delivering across multiple titles with strict brand and quality bars.",
+      "expanded": {
+        "problem": "Disney IP titles operate under constraints most game studios never encounter — brand guidelines, legal review pipelines, cross-department approvals — all while maintaining shipping velocity.",
+        "solution": "Developed tooling and workflow patterns that allowed rapid iteration within strict constraints. Built editor extensions that automated compliance checks, reducing review cycle time significantly.",
+        "outcome": "Shipped multiple titles across platforms while maintaining Disney's quality and brand standards. Built internal reputation for finding creative solutions within seemingly rigid systems.",
+        "tech": ["Unity", "Unreal Engine", "Mobile", "Xbox", "PlayStation", "Internal Disney SDKs", "Editor Tooling", "Pipeline Automation"],
+        "trailer": "",
+        "images": [],
+        "titleImage": ""
+      }
+    },
+    {
       "id": "raw-data",
-      "featured": true,
+      "featured": false,
       "title": "RAW DATA",
       "studio": "Survios",
       "year": "2017",
@@ -27,40 +63,6 @@
         "solution": "Built core gameplay systems including physics-driven melee, IK-resolved body presence, and a spatial audio combat framework. Iterated constantly with playtests to dial in the feel that made Raw Data feel real rather than gimmicky.",
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
-        "trailer": "",
-        "images": [],
-        "titleImage": ""
-      }
-    },
-    {
-      "id": "disney",
-      "featured": false,
-      "title": "DISNEY PROJECTS",
-      "studio": "Disney",
-      "year": "2018-2026",
-      "role": "Senior Game Developer",
-      "platforms": "Multi-Platform",
-      "previewLabel": "DISNEY",
-      "previewSub": "ENTERPRISE SCALE · MOBILE/PC/CONSOLE",
-      "previewColor": "#113ccf",
-      "previewGlow": "rgba(17,60,207,0.7)",
-      "previewTheme": "disney",
-      "chips": [
-        {"label": "Unity", "style": "unity-light"},
-        {"label": "Uneal Engine 4", "style": "ue-yellow"},
-        {"label": "PlayStation", "style": "ps-blue"},
-        {"label": "Xbox", "style": "xbox-green"},
-        {"label": "Disney", "style": "disney-blue"},
-        {"label": "Internal Tooling", "style": "teal"},
-        {"label": "Pipeline Automation", "style": "accent"}
-      ],
-      "tagline": null,
-      "summary": "Enterprise-scale production with IP constraints most studios never face. Learned to solve problems inside systems you can't just rebuild — delivering across multiple titles with strict brand and quality bars.",
-      "expanded": {
-        "problem": "Disney IP titles operate under constraints most game studios never encounter — brand guidelines, legal review pipelines, cross-department approvals — all while maintaining shipping velocity.",
-        "solution": "Developed tooling and workflow patterns that allowed rapid iteration within strict constraints. Built editor extensions that automated compliance checks, reducing review cycle time significantly.",
-        "outcome": "Shipped multiple titles across platforms while maintaining Disney's quality and brand standards. Built internal reputation for finding creative solutions within seemingly rigid systems.",
-        "tech": ["Unity", "Unreal Engine", "Mobile", "Xbox", "PlayStation", "Internal Disney SDKs", "Editor Tooling", "Pipeline Automation"],
         "trailer": "",
         "images": [],
         "titleImage": ""

@@ -59,6 +59,12 @@
 	--itch-red:       #fa5c5c;   /* Itch.io red */
 	--github-white:   #f0f6fc;   /* GitHub on dark backgrounds */
 	--disney-blue:    #113ccf;   /* Disney official blue */
+
+	/* Web / Frontend Tech */
+	--html5-orange:   #e34f26;   /* HTML5 */
+	--nodejs-green:   #339933;   /* Node.js brand green */
+	--js-silver:      #bfc1c5;   /* JavaScript (neutral silver) */
+	--css-blue:       #264de4;   /* CSS3 */
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -392,6 +398,12 @@ section { padding:110px 52px; position:relative; }
 .chip.accent { border-color:rgba(167,139,250,.4); color:var(--accent); }
 .chip.teal	 { border-color:rgba(45,212,191,.35); color:var(--teal); }
 .chip.pink	 { border-color:rgba(244,114,182,.35); color:var(--accent2); }
+
+/* Web tech chips */
+.chip.html5-orange { border-color: rgba(227,79,38,.35); color: var(--html5-orange); }
+.chip.nodejs-green { border-color: rgba(51,153,51,.35); color: var(--nodejs-green); }
+.chip.js { border-color: rgba(191,193,197,.35); color: var(--js-silver); }
+.chip.css { border-color: rgba(38,77,228,.35); color: var(--css-blue); }
 .chip.ps-blue { border-color:rgba(0,112,209,.4); color:var(--ps-blue); }
 .chip.xbox-green { border-color:rgba(16,124,16,.4); color:var(--xbox-green); }
 .chip.nintendo-red { border-color:rgba(228,0,15,.4); color:var(--nintendo-red); }
