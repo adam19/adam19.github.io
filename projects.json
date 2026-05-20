@@ -1,72 +1,248 @@
 {
   "projects": [
     {
-      "id": "disney",
-      "featured": false,
-      "title": "PLANET OF THE APES: LAST FRONTIER",
+      "id": "disney-planet-apes",
+      "featured": true,
+      "title": "Planet of the Apes: Last Frontier",
       "studio": "The Walt Disney Company",
-      "year": "2018-2026",
-      "role": "Senior Game Developer",
-      "platforms": "Multi-Platform",
+      "year": "2018",
+      "role": "Sole Developer / Archive Engineer",
+      "platforms": "PS4 / Xbox One / PC",
       "previewLabel": "DISNEY",
-      "previewSub": "THE WALT DISNEY COMPANY · PC/CONSOLE · 2025-26",
+      "previewSub": "THE WALT DISNEY COMPANY · CONSOLE · 2018",
       "previewColor": "#113ccf",
       "previewGlow": "rgba(17,60,207,0.7)",
-      "previewTheme": "disney",
+      "previewTheme": "console",
       "chips": [
-        {"label": "Unity", "style": "unity-light"},
-        {"label": "Uneal Engine 4", "style": "ue-yellow"},
-        {"label": "PlayStation", "style": "ps-blue"},
+        {"label": "Unreal Engine 4", "style": "ue-yellow"},
+        {"label": "PS4", "style": "ps-blue"},
         {"label": "Xbox", "style": "xbox-green"},
-        {"label": "Disney", "style": "disney-blue"},
-        {"label": "Internal Tooling", "style": "teal"},
-        {"label": "HTML5", "style": "html5-orange"},
-        {"label": "Node.js", "style": "nodejs-green"},
-        {"label": "Pipeline Automation", "style": "accent"}
+        {"label": "Archive", "style": "accent"},
+        {"label": "Build Tools", "style": "teal"},
+        {"label": "Localization", "style": "unity-light"}
       ],
-      "tagline": null,
-      "summary": "Enterprise-scale production with IP constraints most studios never face. Learned to solve problems inside systems you can't just rebuild — delivering across multiple titles with strict brand and quality bars.",
+      "tagline": "ARCHIVE / BUILD RECONSTRUCTION",
+      "summary": "Recovered and rebuilt a console Unreal project with missing build instructions — documented the entire process so future engineers can reproduce builds.",
       "expanded": {
-        "problem": "Disney IP titles operate under constraints most game studios never encounter — brand guidelines, legal review pipelines, cross-department approvals — all while maintaining shipping velocity.",
-        "solution": "Developed tooling and workflow patterns that allowed rapid iteration within strict constraints. Built editor extensions that automated compliance checks, reducing review cycle time significantly.",
-        "outcome": "Shipped multiple titles across platforms while maintaining Disney's quality and brand standards. Built internal reputation for finding creative solutions within seemingly rigid systems.",
-        "tech": ["Unity", "Unreal Engine", "Mobile", "Xbox", "PlayStation", "Internal Disney SDKs", "Editor Tooling", "Pipeline Automation"],
+        "problem": "Planet of the Apes was delivered to archive with zero build instructions; the original developers were no longer available and the console toolchains were not set up.",
+        "solution": "I determined the exact Unreal Engine and console SDK versions, rebuilt the editor and console toolchains, disabled online components per policy, updated legal/localization data, and iterated until the game built and ran on target hardware.",
+        "outcome": "Complete build documentation and reproducible builds were produced for archival purposes. Although the title was later cancelled, the archive now contains a runnable process and engineering notes for future maintainers.",
+        "tech": ["Unreal Engine 4","PS4 SDK","Xbox SDK","Build Automation","Localization"],
         "trailer": "",
-        "images": [],
-        "titleImage": ""
+        "images": ["img/apes/pota01.jpg","img/apes/pota02.jpg","img/apes/pota03.jpg"],
+        "titleImage": "img/apes/title.png"
       }
     },
     {
-      "id": "disney",
+      "id": "disney-starwars-assault-team",
       "featured": false,
-      "title": "PLANET OF THE APES: LAST FRONTIER",
+      "title": "Star Wars: Assault Team",
       "studio": "The Walt Disney Company",
-      "year": "2018-2026",
-      "role": "Senior Game Developer",
-      "platforms": "Multi-Platform",
+      "year": "2016-2018",
+      "role": "Engineer — Upgrade & Port",
+      "platforms": "Android / Amazon Fire",
       "previewLabel": "DISNEY",
-      "previewSub": "THE WALT DISNEY COMPANY · PC/CONSOLE",
+      "previewSub": "THE WALT DISNEY COMPANY · ANDROID",
       "previewColor": "#113ccf",
       "previewGlow": "rgba(17,60,207,0.7)",
       "previewTheme": "disney",
       "chips": [
         {"label": "Unity", "style": "unity-light"},
-        {"label": "Uneal Engine 4", "style": "ue-yellow"},
-        {"label": "PlayStation", "style": "ps-blue"},
-        {"label": "Xbox", "style": "xbox-green"},
-        {"label": "Disney", "style": "disney-blue"},
-        {"label": "Internal Tooling", "style": "teal"},
-        {"label": "HTML5", "style": "html5-orange"},
-        {"label": "Node.js", "style": "nodejs-green"},
-        {"label": "Pipeline Automation", "style": "accent"}
+        {"label": "Android", "style": "android-green"},
+        {"label": "Pipeline Automation", "style": "accent"},
+        {"label": "Asset Bundles", "style": "teal"}
       ],
       "tagline": null,
-      "summary": "Enterprise-scale production with IP constraints most studios never face. Learned to solve problems inside systems you can't just rebuild — delivering across multiple titles with strict brand and quality bars.",
+      "summary": "Updated an older Unity mobile title to run on modern Android devices and Amazon Fire tablets and improved asset pipelines to decrease load times.",
       "expanded": {
-        "problem": "Disney IP titles operate under constraints most game studios never encounter — brand guidelines, legal review pipelines, cross-department approvals — all while maintaining shipping velocity.",
-        "solution": "Developed tooling and workflow patterns that allowed rapid iteration within strict constraints. Built editor extensions that automated compliance checks, reducing review cycle time significantly.",
-        "outcome": "Shipped multiple titles across platforms while maintaining Disney's quality and brand standards. Built internal reputation for finding creative solutions within seemingly rigid systems.",
-        "tech": ["Unity", "Unreal Engine", "Mobile", "Xbox", "PlayStation", "Internal Disney SDKs", "Editor Tooling", "Pipeline Automation"],
+        "problem": "Star Wars Assault Team was aging on older Android versions and lacked compatibility for modern devices and Amazon Fire tablets.",
+        "solution": "Upgraded the project across Unity versions (stepwise), fixed API deprecations, rewrote build scripts and asset-bundling tools to reduce build time and improve load performance.",
+        "outcome": "Faster builds, improved level-load times, and successful deployments to Amazon and other marketplaces; the project reached wider international audiences.",
+        "tech": ["Unity","Android","Mobile","Pipeline Automation"],
+        "trailer": "",
+        "images": [
+          "img/starwars/screenshot01.webp",
+          "img/starwars/screenshot02.webp",
+          "img/starwars/screenshot03.png"
+        ],
+        "titleImage": "img/starwars/title.webp"
+      }
+    },
+    {
+      "id": "disney-toy-story-drop",
+      "featured": false,
+      "title": "Toy Story Drop",
+      "studio": "The Walt Disney Company",
+      "year": "2017-2019",
+      "role": "Engineer — Transfer & Build",
+      "platforms": "iOS / Android / PC",
+      "previewLabel": "DISNEY",
+      "previewSub": "THE WALT DISNEY COMPANY · MOBILE",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Custom Engine", "style": "accent"},
+        {"label": "iOS", "style": "ios-blue"},
+        {"label": "Android", "style": "android-green"},
+        {"label": "PC", "style": "pc-silver"}
+      ],
+      "tagline": null,
+      "summary": "Transitioned a live freemium game into Disney ownership, improved cross-platform tooling, and implemented gameplay changes to support new monetization models.",
+      "expanded": {
+        "problem": "The original developer moved on; the title needed to be transferred to Disney and made buildable across platforms.",
+        "solution": "Worked with the original developer to transfer assets and code, produced functioning builds across platforms, and improved cross-platform tools. Implemented gameplay adjustments for a Freemium model and removed IAP where required.",
+        "outcome": "The game launched on additional Android platforms and was licensed to PC platforms, extending its reach beyond initial expectations.",
+        "tech": ["Custom Engine","iOS","Android","macOS","PC"],
+        "trailer": "",
+        "images": ["img/toystory/screen1.jpg","img/toystory/screen2.jpg"],
+        "titleImage": "img/toystory/title.jpg"
+      }
+    },
+    {
+      "id": "disney-inside-out",
+      "featured": false,
+      "title": "Inside Out: Thought Bubbles",
+      "studio": "The Walt Disney Company",
+      "year": "2018",
+      "role": "Engineer — Engine Upgrade",
+      "platforms": "iOS / Android",
+      "previewLabel": "DISNEY",
+      "previewSub": "THE WALT DISNEY COMPANY · MOBILE",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "unity-light"},
+        {"label": "iOS", "style": "ios-blue"},
+        {"label": "Android", "style": "android-green"}
+      ],
+      "tagline": null,
+      "summary": "Updated an older Unity title to modern engine versions, removed IAP, and adjusted UI for newer phone aspect ratios.",
+      "expanded": {
+        "problem": "Needed to update Unity 5.x project to Unity 2017.x and transition from F2P to Freemium, while improving UI for newer devices.",
+        "solution": "Performed staged engine upgrades, removed IAP, adjusted UI/HUD for wider screens (iPhone X), and optimized asset bundle strategy to reduce memory usage.",
+        "outcome": "Improved visuals and cross-platform support enabled the game to run on additional markets without IAP.",
+        "tech": ["Unity","iOS","Android"],
+        "trailer": "",
+        "images": ["img/insideout/screen1.jpg"],
+        "titleImage": "img/insideout/title.jpg"
+      }
+    },
+    {
+      "id": "disney-dreamlight-renders",
+      "featured": false,
+      "title": "Disney Dreamlight Valley — Renders",
+      "studio": "The Walt Disney Company",
+      "year": "2022",
+      "role": "Rendering Tools / Technical Artist",
+      "platforms": "Unity",
+      "previewLabel": "DISNEY",
+      "previewSub": "RENDERS · BOOK ART",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "unity-light"},
+        {"label": "Offline Renders", "style": "accent"}
+      ],
+      "tagline": null,
+      "summary": "Built tools to batch-place scene assets and render high-resolution house images for a strategy guide book.",
+      "expanded": {
+        "problem": "Publisher needed clean renders of in-game houses without surrounding environments on tight timelines.",
+        "solution": "Wrote Unity scripts to place assets, set cameras, and render batches at multiple resolutions; iterated lighting and composition quickly.",
+        "outcome": "Delivered final print-ready renders in days, enabling rapid iteration with art and publishing teams.",
+        "tech": ["Unity","Rendering Tools","Batch Processing"],
+        "trailer": "",
+        "images": ["img/ddv/house1.jpg","img/ddv/house2.jpg"],
+        "titleImage": "img/ddv/title.jpg"
+      }
+    },
+    {
+      "id": "disney-beauty-and-beast",
+      "featured": false,
+      "title": "Beauty and the Beast: Perfect Match",
+      "studio": "The Walt Disney Company",
+      "year": "2016",
+      "role": "Engineer — iOS Upgrade",
+      "platforms": "iOS / Android",
+      "previewLabel": "DISNEY",
+      "previewSub": "THE WALT DISNEY COMPANY · MOBILE",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "unity-light"},
+        {"label": "iOS", "style": "ios-blue"},
+        {"label": "Shaders", "style": "accent"}
+      ],
+      "tagline": null,
+      "summary": "Upgraded Unity to support iPhone X, fixed shader/asset bundle issues, and adapted HUD for new device aspect ratios.",
+      "expanded": {
+        "problem": "Game required UI adjustments for iPhone X and experienced shader glitches after engine upgrades.",
+        "solution": "Implemented an adaptive overlay for the notch, adjusted HUD anchors, and investigated shader bugs (working with Unity where necessary).",
+        "outcome": "Title supported modern devices with improved UI and performance; shipped updates on schedule.",
+        "tech": ["Unity","iOS","Asset Bundles"],
+        "trailer": "",
+        "images": ["img/beauty/screen1.jpg"],
+        "titleImage": "img/beauty/title.jpg"
+      }
+    },
+    {
+      "id": "disney-dream-treats",
+      "featured": false,
+      "title": "DISNEY DREAM TREATS",
+      "studio": "The Walt Disney Company",
+      "year": "2015",
+      "role": "Engineer — UI/Platform Support",
+      "platforms": "iOS / Android",
+      "previewLabel": "DISNEY",
+      "previewSub": "THE WALT DISNEY COMPANY · MOBILE",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "unity-light"},
+        {"label": "iOS", "style": "ios-blue"},
+        {"label": "Android", "style": "android-green"}
+      ],
+      "tagline": null,
+      "summary": "UI and HUD updates to support wider aspect ratios and new devices, improving layout and player experience across platforms.",
+      "expanded": {
+        "problem": "UI did not adapt well to new device aspect ratios and required significant repositioning work.",
+        "solution": "Reused adaptive overlay and anchoring strategies from other titles, performed debug drawing to tune placements, and updated textures as needed.",
+        "outcome": "Updated layout launched successfully and improved visual clarity across devices.",
+        "tech": ["Unity","iOS","Android"],
+        "trailer": "",
+        "images": ["img/dreamtreats/screenshot01.png", "img/dreamtreats/screenshot02.png", "img/dreamtreats/screenshot03.jpg"],
+        "titleImage": "img/dreamtreats/title.jpg"
+      }
+    },
+    {
+      "id": "disney-mobile-games",
+      "featured": false,
+      "title": "Disney Mobile Games (Catalog)",
+      "studio": "The Walt Disney Company",
+      "year": "2014-2019",
+      "role": "Senior Software Engineer",
+      "platforms": "iOS / Android",
+      "previewLabel": "DISNEY",
+      "previewSub": "CATALOG OPERATIONS · MULTI",
+      "previewColor": "#113ccf",
+      "previewGlow": "rgba(17,60,207,0.7)",
+      "previewTheme": "disney",
+      "chips": [
+        {"label": "Unity", "style": "unity-light"},
+        {"label": "Android", "style": "android-green"},
+        {"label": "Pipeline", "style": "accent"}
+      ],
+      "tagline": null,
+      "summary": "Maintained and upgraded multiple legacy Disney mobile titles for broader platform distribution and improved tooling for faster turnarounds.",
+      "expanded": {
+        "problem": "Catalog of legacy titles required updates to run on modern platforms and to meet security/policy requirements.",
+        "solution": "Upgraded engines, fixed platform-specific issues, and built tooling to automate repetitive tasks — enabling rapid packaging and deployment.",
+        "outcome": "Multiple titles were re-released on new marketplaces with improved stability and performance.",
+        "tech": ["Unity","Android","iOS","Pipeline Automation"],
         "trailer": "",
         "images": [],
         "titleImage": ""
@@ -86,11 +262,9 @@
       "previewGlow": "rgba(167,139,250,0.8)",
       "previewTheme": "vr",
       "chips": [
-        {"label": "VR", "style": "oculus-grey"},
-        {"label": "Uneal Engine 4", "style": "ue-yellow"},
-        {"label": "PSVR", "style": "ps-blue"},
-        {"label": "Room-Scale", "style": "teal"},
-        {"label": "Combat Systems", "style": "accent"}
+        {"label": "Unreal Engine 4", "style": "ue-yellow"},
+        {"label": "Combat Systems", "style": "accent"},
+        {"label": "Pipeline Automation", "style": "accent"}
       ],
       "tagline": "FEATURED // LANDMARK TITLE",
       "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible — defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
@@ -100,68 +274,99 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": [],
-        "titleImage": ""
+        "images": ["img/rawdata/screenshot01.webp", "img/rawdata/screenshot02.jpg", "img/rawdata/screenshot03.jpg", "img/rawdata/screenshot04.jpg", "img/rawdata/screenshot05.jpg"],
+        "titleImage": "img/rawdata/title.jpg"
       }
     },
     {
-      "id": "iron-pact",
+      "id": "xcom2",
       "featured": false,
-      "title": "IRON PACT",
-      "studio": "Independent",
-      "year": "2023",
-      "role": "Lead Developer",
-      "platforms": "iOS / Android",
-      "previewLabel": "IRON\nPACT",
-      "previewSub": "UNITY · iOS / ANDROID · 2023",
-      "previewColor": "#2dd4bf",
-      "previewGlow": "rgba(45,212,191,0.7)",
-      "previewTheme": "mobile",
-      "chips": [
-        {"label": "Unity", "style": "teal"},
-        {"label": "iOS / Android", "style": ""},
-        {"label": "Live Service", "style": ""}
-      ],
-      "tagline": null,
-      "summary": "Content updates took two weeks to balance and ship. Built a data-driven pipeline that cut it to three days without touching the build. 2.4M downloads, 4.7★ rating.",
-      "expanded": {
-        "problem": "The content team needed 2+ weeks per balance update, requiring a full engineer to touch the build each time. At live-service velocity, that was unsustainable.",
-        "solution": "Architected a fully data-driven content pipeline — all game balance, economy values, and content gating driven from remote JSON configs. Built a custom editor dashboard for non-engineers to author, validate, and push updates without a code deploy.",
-        "outcome": "Update cycle dropped from 14 days to 3. The content team became self-sufficient. 2.4M downloads and a 4.7★ App Store rating across iOS and Android.",
-        "tech": ["Unity", "Remote Config", "C#", "Custom Editor Tools", "iOS", "Android", "Analytics"],
-        "trailer": "",
-        "images": [],
-        "titleImage": ""
-      }
-    },
-    {
-      "id": "neon-depths",
-      "featured": false,
-      "title": "NEON DEPTHS",
-      "studio": "Solo",
-      "year": "2022",
-      "role": "Solo Developer",
-      "platforms": "Browser / Itch.io",
-      "previewLabel": "NEON\nDEPTHS",
-      "previewSub": "UNITY WEBGL · BROWSER · 2022",
+      "title": "X-COM 2",
+      "studio": "Skydance / The Workshop",
+      "year": "2016",
+      "role": "Gameplay Developer",
+      "platforms": "PC / Xbox 1 / PS4",
+      "previewLabel": "X-COM 2",
+      "previewSub": "SKYDANCE · PC / CONSOLE · 2016",
       "previewColor": "#a78bfa",
-      "previewGlow": "rgba(167,139,250,0.6)",
-      "previewTheme": "web",
+      "previewGlow": "rgba(167,139,250,0.8)",
+      "previewTheme": "console",
       "chips": [
-        {"label": "Unity WebGL", "style": "accent"},
-        {"label": "Browser", "style": ""},
-        {"label": "Jam Winner", "style": "teal"}
+        {"label": "Unreal Engine 3", "style": "ue3"},
+        {"label": "Combat Systems", "style": "accent"},
+        {"label": "PS4", "style": "ps-blue"},
+        {"label": "Xbox", "style": "xbox-green"},
+        {"label": "Pipeline", "style": "accent"}
       ],
       "tagline": null,
-      "summary": "WebGL builds were bloated and slow. Engineered a custom streaming pipeline and WASM compression strategy to hit sub-8s load time. Game Jam 1st place.",
+      "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible — defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
       "expanded": {
-        "problem": "Unity WebGL builds were landing at 80MB+ with 30+ second load times on average connections — a death sentence for a game jam entry that needs to hook players in seconds.",
-        "solution": "Audited the full asset pipeline, implemented addressable asset streaming, stripped unused engine modules, and applied Brotli compression to WASM. Rebuilt the loading screen as a playable micro-experience to mask remaining load time.",
-        "outcome": "Final build: under 12MB. Load time: sub-8 seconds on average connections. Placed 1st overall in the jam across 340+ entries.",
-        "tech": ["Unity WebGL", "Addressables", "WASM Optimization", "Brotli Compression", "C#", "GLSL"],
+        "problem": "Room-scale VR combat had no established conventions. Everything from locomotion to weapon feel to spatial audio had to be invented from scratch in a medium that was weeks old.",
+        "solution": "Built core gameplay systems including physics-driven melee, IK-resolved body presence, and a spatial audio combat framework. Iterated constantly with playtests to dial in the feel that made Raw Data feel real rather than gimmicky.",
+        "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
+        "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
+        "trailer": "",
+        "images": ["img/xcom2/screenshot01.jpg", "img/xcom2/screenshot05.jpg"],
+        "titleImage": "img/xcom2/title.png"
+      }
+    },
+    {
+      "id": "wevr-videoplayer",
+      "featured": false,
+      "title": "360 VR VIDEO PLAYER",
+      "studio": "WEVR",
+      "year": "2015",
+      "role": "VR Developer",
+      "platforms": "Android",
+      "previewLabel": "360 VR VIDEO PLAYER",
+      "previewSub": "WEVR · ANDROID · 2015",
+      "previewColor": "#a78bfa",
+      "previewGlow": "rgba(167,139,250,0.8)",
+      "previewTheme": "vr",
+      "chips": [
+        {"label": "VR", "style": "oculus-grey"},
+        {"label": "Android", "style": "android-green"},
+        {"label": "OpenGL", "style": "teal"}
+      ],
+      "tagline": null,
+      "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible — defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
+      "expanded": {
+        "problem": "Room-scale VR combat had no established conventions. Everything from locomotion to weapon feel to spatial audio had to be invented from scratch in a medium that was weeks old.",
+        "solution": "Built core gameplay systems including physics-driven melee, IK-resolved body presence, and a spatial audio combat framework. Iterated constantly with playtests to dial in the feel that made Raw Data feel real rather than gimmicky.",
+        "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
+        "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
         "images": [],
-        "titleImage": ""
+        "titleImage": "img/vrvideoplayer/title.png"
+      }
+    },
+    {
+      "id": "wevr-thebluvr",
+      "featured": false,
+      "title": "THEBLU VR PROTOTYPE",
+      "studio": "WEVR",
+      "year": "2014",
+      "role": "VR Developer",
+      "platforms": "VR",
+      "previewLabel": "THEBLU VR PROTOTYPE",
+      "previewSub": "WEVR · VR · 2015",
+      "previewColor": "#a78bfa",
+      "previewGlow": "rgba(167,139,250,0.8)",
+      "previewTheme": "vr",
+      "chips": [
+        {"label": "VR", "style": "oculus-grey"},
+        {"label": "Unity", "style": "unity-light"}
+      ],
+      "tagline": null,
+      "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible — defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
+      "expanded": {
+        "problem": "Room-scale VR combat had no established conventions. Everything from locomotion to weapon feel to spatial audio had to be invented from scratch in a medium that was weeks old.",
+        "solution": "Built core gameplay systems including physics-driven melee, IK-resolved body presence, and a spatial audio combat framework. Iterated constantly with playtests to dial in the feel that made Raw Data feel real rather than gimmicky.",
+        "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
+        "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
+        "trailer": "",
+        "images": [],
+        "titleImage": "img/thebluvr/title.jpg"
       }
     }
   ]

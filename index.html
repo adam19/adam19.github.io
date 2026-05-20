@@ -120,6 +120,20 @@
 
 </div><!-- #page -->
 
+<!-- CASE STUDY MODAL -->
+<div id="case-modal" class="case-modal" aria-hidden="true">
+  <div class="case-modal-backdrop"></div>
+  <div class="case-modal-panel">
+    <button class="case-modal-close" aria-label="Close">×</button>
+    <div class="case-modal-body">
+      <div id="case-modal-media"></div>
+      <h2 id="case-modal-title"></h2>
+      <div id="case-modal-meta" class="proj-role" style="margin-bottom:14px;color:var(--dim);"></div>
+      <div id="case-modal-content"></div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -306,7 +320,14 @@ function buildTrailer(trailer){
 }
 
 function buildChips(chips){
-  return chips.map(c=>`<span class="chip ${c.style||''}">${c.label}</span>`).join('');
+  // normalize style/class names to a safe slug so JSON values needn't match CSS exactly
+  return chips.map(c=>{
+    const raw = (c.style && c.style.length) ? c.style : c.label;
+    const cls = raw.toString().toLowerCase().trim()
+      .replace(/\s+/g,'-')
+      .replace(/[^a-z0-9\-]/g,'');
+    return `<span class="chip ${cls}">${c.label}</span>`;
+  }).join('');
 }
 
 function buildTechTags(tech){
@@ -405,6 +426,22 @@ function buildCard(project, idx){
     gridStyle = '';
   }
 
+  // decide preview image (explicit previewImage or titleImage from expanded)
+  const previewImage = project.previewImage || (project.expanded && project.expanded.titleImage) || '';
+  // prepare label HTML (only inserted when there is no preview image)
+  const labelHTML = `<div class="prev-label" style="color:${project.previewColor};text-shadow:0 0 12px rgba(255,255,255,0.06), 0 0 40px ${project.previewGlow}">${previewLines}<span class="prev-sub">${project.previewSub}</span></div>`;
+
+  // build media block: if image specified, render img with onerror fallback to grid; otherwise render grid
+  let mediaHTML = '';
+  const safeGrid = gridStyle.replace(/"/g,'\\"');
+  if(previewImage){
+    // onerror will replace the image with the grid markup and remove the has-image class so the label returns
+    const onerr = `(function(){const p=this.parentNode; const pp=p.closest('.proj-preview'); if(pp) pp.classList.remove('has-image'); p.innerHTML='<div class=\\'prev-grid\\' style=\\'${safeGrid}\\'></div>';}).call(this)`;
+    mediaHTML = `<div class="prev-media"><img class="prev-img" src="${previewImage}" onerror="${onerr}"></div>`;
+  } else {
+    mediaHTML = `<div class="prev-media"><div class="prev-grid" style="${gridStyle}"></div></div>`;
+  }
+
   const featuredTag = project.tagline
     ? `<div class="featured-tag">${project.tagline}</div>` : '';
 
@@ -417,9 +454,12 @@ function buildCard(project, idx){
       <p class="proj-summary">${project.summary}</p>
       <div class="proj-footer">
         <span class="proj-meta">${project.year} · ${project.platforms}</span>
-        <button class="proj-expand-btn" data-id="${project.id}" aria-expanded="false">
-          Details <span class="expand-arrow">↓</span>
-        </button>
+        <div style="display:flex;gap:12px;align-items:center;">
+          <button class="proj-expand-btn" data-id="${project.id}" aria-expanded="false">
+            Details <span class="expand-arrow">↓</span>
+          </button>
+          <button class="proj-case-btn" data-id="${project.id}" aria-label="Read Case Study">Read Case Study</button>
+        </div>
       </div>
     </div>
     ${buildExpandedPanel(project, wide)}
@@ -431,11 +471,9 @@ function buildCard(project, idx){
   return `
     <div class="${classes.join(' ')}" data-id="${project.id}">
       <div class="proj-media">
-        <div class="proj-preview prev-${project.previewTheme}" style="${previewStyle}">
-          <div class="prev-grid" style="${gridStyle}"></div>
-          <div class="prev-label" style="color:${project.previewColor};text-shadow:0 0 12px rgba(255,255,255,0.06), 0 0 40px ${project.previewGlow}">
-            ${previewLines}<span class="prev-sub">${project.previewSub}</span>
-          </div>
+        <div class="proj-preview prev-${project.previewTheme}${previewImage ? ' has-image' : ''}" style="${previewStyle}">
+          ${mediaHTML}
+          ${!previewImage ? labelHTML : ''}
         </div>
       </div>
       ${bodyHTML}
@@ -451,7 +489,9 @@ async function loadProjects(){
   try {
     const res  = await fetch('projects.json');
     const data = await res.json();
-    grid.innerHTML = data.projects.map(buildCard).join('');
+    // keep projects data globally so modal/popups can reference it
+    window._projectsData = data.projects || [];
+    grid.innerHTML = window._projectsData.map(buildCard).join('');
   } catch(e){
     // Fallback: inline sample if fetch fails (file:// or missing)
     console.warn('projects.json not found, using inline fallback:', e.message);
@@ -465,7 +505,170 @@ async function loadProjects(){
   }
   initExpandButtons();
   initScrollReveal();
+  attachCaseButtons();
 }
+
+// ── CASE STUDY MODAL ──
+function openCaseModalById(id){
+  const projects = window._projectsData || [];
+  const project = projects.find(p=>p.id===id);
+  if(!project) return console.warn('Project not found for modal:', id);
+  openCaseModal(project);
+}
+
+function openCaseModal(project){
+  const modal = document.getElementById('case-modal');
+  const title = document.getElementById('case-modal-title');
+  const meta  = document.getElementById('case-modal-meta');
+  const body  = document.getElementById('case-modal-content');
+  const media = document.getElementById('case-modal-media');
+  title.textContent = project.title;
+  meta.innerHTML = `${project.studio || ''} · ${project.year || ''} · ${project.role || ''}`;
+  // build interactive media viewer (main + thumbs)
+  media.innerHTML = '';
+  const main = document.createElement('div'); main.className = 'case-main-media';
+  const thumbStrip = document.createElement('div'); thumbStrip.className = 'case-thumb-strip';
+  media.appendChild(main);
+  media.appendChild(thumbStrip);
+
+  const imgs = (project.expanded && project.expanded.images) ? project.expanded.images.slice() : [];
+  const trailer = project.expanded && project.expanded.trailer ? project.expanded.trailer : '';
+  // currentIndex semantics: -1 = trailer, 0..n-1 = imgs
+  let currentIndex = imgs.length > 0 ? 0 : (trailer ? -1 : -2);
+
+  function clampIndex(i){
+    if(i === -1 && trailer) return -1;
+    const n = imgs.length;
+    if(n===0) return trailer ? -1 : -2;
+    if(i < 0) return n - 1;
+    if(i >= n) return 0;
+    return i;
+  }
+
+  function showIndex(i){
+    i = clampIndex(i);
+    currentIndex = i;
+    main.innerHTML = '';
+    if(i === -1){
+      // render trailer
+      if(trailer.includes('youtube.com') || trailer.includes('youtu.be')){
+        const id = trailer.match(/(?:v=|\/embed\/|youtu\.be\/)([^&\n?#]+)/)?.[1] || '';
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${id}`;
+        iframe.setAttribute('allowfullscreen','');
+        main.appendChild(iframe);
+      } else if(trailer.match(/\.(mp4|webm)$/i)){
+        const vid = document.createElement('video'); vid.src = trailer; vid.controls = true; vid.autoplay = false; vid.playsInline = true;
+        main.appendChild(vid);
+      } else {
+        const iframe = document.createElement('iframe'); iframe.src = trailer; iframe.setAttribute('allowfullscreen',''); main.appendChild(iframe);
+      }
+      Array.from(thumbStrip.children).forEach(t=> t.classList.toggle('active', t.dataset.index === '-1'));
+    } else if(i === -2){
+      main.innerHTML = '<div style="padding:28px;color:var(--dimmer)">No media available</div>';
+      Array.from(thumbStrip.children).forEach(t=> t.classList.remove('active'));
+    } else {
+      const imgSrc = imgs[i];
+      const img = document.createElement('img'); img.src = imgSrc; img.alt = project.title || 'Screenshot';
+      main.appendChild(img);
+      Array.from(thumbStrip.children).forEach(t=> t.classList.toggle('active', Number(t.dataset.index) === i));
+    }
+  }
+
+  // populate thumb strip: add trailer thumb first if present
+  if(trailer){
+    const t = document.createElement('div'); t.className = 'case-thumb trailer'; t.dataset.index = -1;
+    const im = document.createElement('img');
+    // use project's titleImage as poster if available, otherwise blank poster
+    im.src = (project.expanded && project.expanded.titleImage) ? project.expanded.titleImage : 'img/video-poster.jpg';
+    im.alt = project.title + ' trailer';
+    t.appendChild(im);
+    t.addEventListener('click', ()=> showIndex(-1));
+    thumbStrip.appendChild(t);
+  }
+
+  imgs.forEach((s, idx) => {
+    const t = document.createElement('div'); t.className = 'case-thumb'; t.dataset.index = idx;
+    const im = document.createElement('img'); im.src = s; im.alt = project.title + ' thumbnail';
+    t.appendChild(im);
+    t.addEventListener('click', ()=> showIndex(idx));
+    thumbStrip.appendChild(t);
+  });
+
+  // add prev/next buttons overlayed on main
+  const prevBtn = document.createElement('button'); prevBtn.className = 'case-nav-button case-nav-prev'; prevBtn.setAttribute('aria-label','Previous'); prevBtn.textContent = '‹';
+  const nextBtn = document.createElement('button'); nextBtn.className = 'case-nav-button case-nav-next'; nextBtn.setAttribute('aria-label','Next'); nextBtn.textContent = '›';
+  prevBtn.addEventListener('click', ()=> showIndex(currentIndex - 1));
+  nextBtn.addEventListener('click', ()=> showIndex(currentIndex + 1));
+  main.appendChild(prevBtn); main.appendChild(nextBtn);
+
+  // keyboard left/right navigation (scoped handler so we can remove it on close)
+  const navHandler = (e)=>{
+    if(e.key === 'ArrowLeft') { e.preventDefault(); showIndex(currentIndex - 1); }
+    if(e.key === 'ArrowRight') { e.preventDefault(); showIndex(currentIndex + 1); }
+  };
+  document.addEventListener('keydown', navHandler);
+  // store handler on modal for cleanup
+  modal._navHandler = navHandler;
+
+  // initial show
+  if(imgs.length > 0){ showIndex(0); } else if(trailer){ showIndex(-1); } else { showIndex(-2); }
+  // content: problem/solution/outcome
+  const exp = project.expanded || {};
+  body.innerHTML = `
+    <div class="exp-block-label">THE PROBLEM</div>
+    <p class="exp-text">${exp.problem || '—'}</p>
+    <div style="margin-top:20px"></div>
+    <div class="exp-block-label">THE SOLUTION</div>
+    <p class="exp-text">${exp.solution || '—'}</p>
+    <div style="margin-top:20px"></div>
+    <div class="exp-block-label">THE OUTCOME</div>
+    <p class="exp-text">${exp.outcome || '—'}</p>
+    <div style="margin-top:20px"></div>
+    <div class="exp-block-label">TECH STACK</div>
+    ${buildTechTags(exp.tech || project.chips.map(c=>c.label))}
+  `;
+  // open with animation class
+  modal.removeAttribute('aria-hidden');
+  modal.classList.remove('closing');
+  modal.classList.add('open');
+}
+
+function closeCaseModal(){
+  const modal = document.getElementById('case-modal');
+  // add closing state to trigger CSS animation then hide
+  modal.classList.add('closing');
+  modal.classList.remove('open');
+  const panel = modal.querySelector('.case-modal-panel');
+  if(panel){
+    const onEnd = (e)=>{ if(e.target===panel){ modal.setAttribute('aria-hidden','true'); modal.classList.remove('closing'); panel.removeEventListener('transitionend', onEnd); }};
+    panel.addEventListener('transitionend', onEnd);
+    // fallback: hide after timeout if transitionend doesn't fire
+    setTimeout(()=>{ if(modal.classList.contains('closing')){ modal.setAttribute('aria-hidden','true'); modal.classList.remove('closing'); } }, 600);
+  } else {
+    modal.setAttribute('aria-hidden','true'); modal.classList.remove('closing');
+  }
+  // remove keyboard nav handler if present
+  if(modal._navHandler){ document.removeEventListener('keydown', modal._navHandler); modal._navHandler = null; }
+}
+
+// attach click handlers for any 'Read Case Study' buttons after DOM is updated
+function attachCaseButtons(){
+  document.querySelectorAll('.proj-case-btn').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      const id = btn.dataset.id;
+      openCaseModalById(id);
+    });
+  });
+  // close interactions
+  document.addEventListener('click', e=>{
+    if(e.target.matches('#case-modal') || e.target.matches('.case-modal-backdrop') || e.target.matches('.case-modal-close')){
+      closeCaseModal();
+    }
+  });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCaseModal(); });
+}
+
 
 // ════════════════════════════
 // EXPAND / COLLAPSE

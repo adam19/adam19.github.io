@@ -44,6 +44,7 @@
 
 	/* Engine Colors */
 	--ue-yellow:      #f7d00c;   /* Unreal Engine official yellow */
+	--ue3-orange:     #ff7a2d;   /* Unreal Engine 3 / legacy accent */
 	--unity-black:    #222222;   /* Unity wordmark black (useful for badges) */
 	--unity-light:    #d4d4d4;   /* Unity light grey accent */
 	--godot-blue:     #478cbf;   /* Godot Engine blue */
@@ -341,6 +342,8 @@ section { padding:110px 52px; position:relative; }
 	align-items:center; justify-content:center;
 	position:relative; overflow:hidden;
 }
+.prev-media { position:absolute; inset:0; }
+.prev-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
 .prev-grid {
 	position:absolute; inset:0;
 	background-image:
@@ -358,6 +361,9 @@ section { padding:110px 52px; position:relative; }
 .prev-mobile { background:linear-gradient(135deg,#001a10,#002a18 50%,#001508); }
 .prev-web		{ background:linear-gradient(135deg,#0a0a20,#141430 50%,#080818); }
 
+/* Console preview theme — darker, subtle metallic / TV feel */
+.prev-console { background:linear-gradient(135deg,#071019,#0f1620 40%,#081018); }
+
 .prev-label {
 	position:relative; z-index:4; text-align:center;
 	font-family:var(--font-display); font-size:38px;
@@ -369,6 +375,7 @@ section { padding:110px 52px; position:relative; }
 	  0 0 12px rgba(255,255,255,0.06), /* soft white halo */
 	  0 0 40px currentColor; /* colored glow from inline style */
 }
+.proj-preview.has-image .prev-label { display:none; }
 .prev-sub {
 	font-family:var(--font-mono); font-size:8px;
 	letter-spacing:.28em; display:block; margin-top:6px;
@@ -411,6 +418,8 @@ section { padding:110px 52px; position:relative; }
 .chip.steam-teal { border-color:rgba(102,192,244,.4); color:var(--steam-teal); }
 .chip.oculus-grey { border-color:rgba(107,114,128,.4); color:var(--oculus-grey); }
 .chip.ue-yellow { border-color:rgba(247,208,12,.4); color:var(--ue-yellow); }
+
+.chip.ue3 { border-color: rgba(255,122,45,.35); color: var(--ue3-orange); }
 .chip.unity-black { border-color:rgba(34,34,34,.4); color:var(--unity-black); }
 .chip.unity-light { border-color:rgba(212,212,212,.4); color:var(--unity-light); }
 .chip.godot-blue { border-color:rgba(71,140,191,.4); color:var(--godot-blue); }
@@ -628,3 +637,61 @@ footer {
 	.stats-strip { grid-template-columns:1fr 1fr; }
 	footer { flex-direction:column; gap:10px; text-align:center; }
 }
+
+/* CASE STUDY MODAL */
+.case-modal { position:fixed; inset:0; display:none; z-index:2000; }
+.case-modal.open { display:block; }
+.case-modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,.7); backdrop-filter:blur(6px); }
+.case-modal-panel { position:relative; width:min(1100px,94%); max-height:90vh; margin:6vh auto; background:var(--expanded-bg); border:1px solid rgba(255,255,255,.06); overflow:auto; padding:22px; box-shadow:0 24px 80px rgba(0,0,0,.6); }
+.case-modal-close { position:absolute; right:14px; top:10px; background:none; border:none; font-size:22px; color:var(--dimmer); cursor:pointer; }
+.case-modal-body { padding:12px 6px 28px; }
+.case-modal-body #case-modal-title { font-family:var(--font-display); font-size:30px; margin-top:8px; margin-bottom:6px; }
+.case-modal-body .proj-role { margin-bottom:10px; }
+.case-modal-media { margin-bottom:14px; }
+
+/* Read Case Study button styling to match site buttons (kept scoped) */
+.proj-case-btn {
+	font-family:var(--font-ui); font-size:12px; font-weight:700;
+	letter-spacing:.18em; text-transform:uppercase; padding:9px 14px;
+	border-radius:4px; cursor:pointer; border:1px solid rgba(255,255,255,.12);
+	background:linear-gradient(180deg, rgba(167,139,250,.08), rgba(167,139,250,.04));
+	color:var(--white);
+	transition:all .18s ease;
+}
+.proj-case-btn:hover { background:linear-gradient(180deg, rgba(167,139,250,.18), rgba(167,139,250,.08)); box-shadow:0 6px 22px rgba(167,139,250,.12); }
+
+/* Modal panel animation states */
+.case-modal-panel {
+	transition:transform .38s cubic-bezier(.2,.9,.26,1), opacity .28s ease;
+	transform: translateY(8px) scale(.985);
+	opacity: 0;
+}
+.case-modal.open .case-modal-panel {
+	transform: translateY(0) scale(1);
+	opacity: 1;
+}
+.case-modal.closing .case-modal-panel {
+	transform: translateY(12px) scale(.98);
+	opacity: 0;
+}
+
+/* Main media + thumbnails */
+.case-main-media { width:100%; aspect-ratio:16/9; background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.06); display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+.case-main-media img, .case-main-media video, .case-main-media iframe { width:100%; height:100%; object-fit:cover; display:block; }
+.case-thumb-strip { display:flex; gap:8px; margin-top:10px; overflow-x:auto; padding-bottom:6px; }
+.case-thumb { flex:0 0 auto; width:96px; height:56px; border:1px solid rgba(255,255,255,.06); background:rgba(255,255,255,.02); cursor:pointer; overflow:hidden; }
+.case-thumb img { width:100%; height:100%; object-fit:cover; display:block; transform-origin:center center; transition:transform .28s ease, box-shadow .18s ease; }
+.case-thumb.active img { transform:scale(1.05); box-shadow:0 8px 26px rgba(0,0,0,.6); }
+
+/* Trailer thumb styling (play overlay) */
+.case-thumb.trailer { position:relative; }
+.case-thumb.trailer::after {
+	content:'▶'; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+	color:rgba(255,255,255,.9); font-size:18px; pointer-events:none; text-shadow:0 2px 8px rgba(0,0,0,.6);
+}
+
+/* Prev/Next buttons overlay on main media */
+.case-nav-button { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:6px; background:rgba(0,0,0,.32); border:1px solid rgba(255,255,255,.06); color:var(--white); display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:10; }
+.case-nav-button:hover { background:rgba(0,0,0,.5); box-shadow:0 10px 30px rgba(0,0,0,.6); }
+.case-nav-prev { left:12px; }
+.case-nav-next { right:12px; }
