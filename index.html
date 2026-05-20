@@ -115,22 +115,17 @@
 
 <footer>
   <p class="foot-txt">© 2026 <span>ADAM</span> · Built with Three.js & GSAP.</p>
-  <p class="foot-txt"><a href="#hero" style="color:inherit;text-decoration:none;cursor:none;">↑ Top</a></p>
+  <p class="foot-txt"><a href="#hero" style="color:inherit;text-decoration:none;;">↑ Top</a></p>
 </footer>
 
 </div><!-- #page -->
 
-<!-- CASE STUDY MODAL -->
-<div id="case-modal" class="case-modal" aria-hidden="true">
-  <div class="case-modal-backdrop"></div>
-  <div class="case-modal-panel">
-    <button class="case-modal-close" aria-label="Close">×</button>
-    <div class="case-modal-body">
-      <div id="case-modal-media"></div>
-      <h2 id="case-modal-title"></h2>
-      <div id="case-modal-meta" class="proj-role" style="margin-bottom:14px;color:var(--dim);"></div>
-      <div id="case-modal-content"></div>
-    </div>
+<!-- Lightbox for full-size images -->
+<div id="lightbox" aria-hidden="true">
+  <div class="lb-overlay" data-lb="overlay"></div>
+  <div class="lb-content" role="dialog" aria-modal="true">
+    <button class="lb-close" aria-label="Close image">×</button>
+    <img class="lb-image" src="" alt="" />
   </div>
 </div>
 
@@ -141,12 +136,12 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // ── CURSOR ──
-const cur = document.getElementById('cur');
-let mx=0,my=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX; my=e.clientY;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-});
+// const cur = document.getElementById('cur');
+// let mx=0,my=0;
+// document.addEventListener('mousemove',e=>{
+//   mx=e.clientX; my=e.clientY;
+//   cur.style.left=mx+'px'; cur.style.top=my+'px';
+// });
 
 // ════════════════════════════
 // NEBULA SHADER
@@ -283,19 +278,21 @@ window.addEventListener('scroll', onScroll, {passive:true});
 // ════════════════════════════
 // PROJECT CARD BUILDER
 // ════════════════════════════
-function buildGallery(images, wide){
-  if(!images || images.length === 0){
-    const cols = wide ? 3 : 2;
-    let html = `<div class="exp-gallery">`;
-    for(let i=0;i<cols;i++){
-      html += `<div class="gallery-slot empty">[ IMAGE ${i+1} ]</div>`;
-    }
-    return html + `</div>`;
-  }
+function buildGallery(images, wide, trailer, titleImage){
+  // Build a horizontal thumbnail strip. If `trailer` is provided, render it first as a trailer thumb.
   let html = `<div class="exp-gallery">`;
-  images.forEach(src => {
-    html += `<div class="gallery-slot"><img src="${src}" alt="Screenshot" loading="lazy"></div>`;
-  });
+  if(trailer){
+    const poster = titleImage ? titleImage : 'img/video-poster.jpg';
+    html += `<div class="gallery-slot trailer" data-type="trailer" data-src="${trailer}"><img class="gallery-thumb" src="${poster}" alt="Trailer poster" loading="lazy"></div>`;
+  }
+  if(images && images.length){
+    images.forEach((src, i) => {
+      html += `<div class="gallery-slot" data-type="image" data-src="${src}" data-index="${i}"><img class="gallery-thumb" src="${src}" alt="Screenshot" loading="lazy"></div>`;
+    });
+  } else if(!trailer){
+    const cols = wide ? 3 : 2;
+    for(let i=0;i<cols;i++) html += `<div class="gallery-slot empty">[ IMAGE ${i+1} ]</div>`;
+  }
   return html + `</div>`;
 }
 
@@ -335,30 +332,17 @@ function buildTechTags(tech){
 }
 
 function buildExpandedPanel(project, wide){
-  const exp = project.expanded;
-  const titleImg = exp.titleImage
-    ? `<img src="${exp.titleImage}" class="exp-title-img" alt="${project.title}">`
-    : '';
+  const exp = project.expanded || {};
 
-  const mediaSection = wide
-    ? `<div>
-        <div class="exp-block-label">TRAILER / MEDIA</div>
-        ${buildTrailer(exp.trailer)}
-       </div>
-       <div>
-        <div class="exp-block-label">SCREENSHOTS</div>
-        ${buildGallery(exp.images, wide)}
-       </div>`
-    : `<div>
+  // Combine trailer + screenshots into a single carousel: trailer (if present) will be first
+  const mediaSection = `<div>
         <div class="exp-block-label">MEDIA</div>
-        ${buildTrailer(exp.trailer)}
-        <div style="margin-top:8px"></div>
-        ${buildGallery(exp.images, wide)}
+        <div class="exp-main-media"></div>
+        ${buildGallery(exp.images || [], wide, exp.trailer, exp.titleImage)}
        </div>`;
 
   return `
     <div class="proj-expanded">
-      ${titleImg}
       <div class="exp-grid">
         <div>
           <div class="exp-block-label">THE PROBLEM</div>
@@ -458,7 +442,6 @@ function buildCard(project, idx){
           <button class="proj-expand-btn" data-id="${project.id}" aria-expanded="false">
             Details <span class="expand-arrow">↓</span>
           </button>
-          <button class="proj-case-btn" data-id="${project.id}" aria-label="Read Case Study">Read Case Study</button>
         </div>
       </div>
     </div>
@@ -505,169 +488,9 @@ async function loadProjects(){
   }
   initExpandButtons();
   initScrollReveal();
-  attachCaseButtons();
 }
 
-// ── CASE STUDY MODAL ──
-function openCaseModalById(id){
-  const projects = window._projectsData || [];
-  const project = projects.find(p=>p.id===id);
-  if(!project) return console.warn('Project not found for modal:', id);
-  openCaseModal(project);
-}
-
-function openCaseModal(project){
-  const modal = document.getElementById('case-modal');
-  const title = document.getElementById('case-modal-title');
-  const meta  = document.getElementById('case-modal-meta');
-  const body  = document.getElementById('case-modal-content');
-  const media = document.getElementById('case-modal-media');
-  title.textContent = project.title;
-  meta.innerHTML = `${project.studio || ''} · ${project.year || ''} · ${project.role || ''}`;
-  // build interactive media viewer (main + thumbs)
-  media.innerHTML = '';
-  const main = document.createElement('div'); main.className = 'case-main-media';
-  const thumbStrip = document.createElement('div'); thumbStrip.className = 'case-thumb-strip';
-  media.appendChild(main);
-  media.appendChild(thumbStrip);
-
-  const imgs = (project.expanded && project.expanded.images) ? project.expanded.images.slice() : [];
-  const trailer = project.expanded && project.expanded.trailer ? project.expanded.trailer : '';
-  // currentIndex semantics: -1 = trailer, 0..n-1 = imgs
-  let currentIndex = imgs.length > 0 ? 0 : (trailer ? -1 : -2);
-
-  function clampIndex(i){
-    if(i === -1 && trailer) return -1;
-    const n = imgs.length;
-    if(n===0) return trailer ? -1 : -2;
-    if(i < 0) return n - 1;
-    if(i >= n) return 0;
-    return i;
-  }
-
-  function showIndex(i){
-    i = clampIndex(i);
-    currentIndex = i;
-    main.innerHTML = '';
-    if(i === -1){
-      // render trailer
-      if(trailer.includes('youtube.com') || trailer.includes('youtu.be')){
-        const id = trailer.match(/(?:v=|\/embed\/|youtu\.be\/)([^&\n?#]+)/)?.[1] || '';
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://www.youtube.com/embed/${id}`;
-        iframe.setAttribute('allowfullscreen','');
-        main.appendChild(iframe);
-      } else if(trailer.match(/\.(mp4|webm)$/i)){
-        const vid = document.createElement('video'); vid.src = trailer; vid.controls = true; vid.autoplay = false; vid.playsInline = true;
-        main.appendChild(vid);
-      } else {
-        const iframe = document.createElement('iframe'); iframe.src = trailer; iframe.setAttribute('allowfullscreen',''); main.appendChild(iframe);
-      }
-      Array.from(thumbStrip.children).forEach(t=> t.classList.toggle('active', t.dataset.index === '-1'));
-    } else if(i === -2){
-      main.innerHTML = '<div style="padding:28px;color:var(--dimmer)">No media available</div>';
-      Array.from(thumbStrip.children).forEach(t=> t.classList.remove('active'));
-    } else {
-      const imgSrc = imgs[i];
-      const img = document.createElement('img'); img.src = imgSrc; img.alt = project.title || 'Screenshot';
-      main.appendChild(img);
-      Array.from(thumbStrip.children).forEach(t=> t.classList.toggle('active', Number(t.dataset.index) === i));
-    }
-  }
-
-  // populate thumb strip: add trailer thumb first if present
-  if(trailer){
-    const t = document.createElement('div'); t.className = 'case-thumb trailer'; t.dataset.index = -1;
-    const im = document.createElement('img');
-    // use project's titleImage as poster if available, otherwise blank poster
-    im.src = (project.expanded && project.expanded.titleImage) ? project.expanded.titleImage : 'img/video-poster.jpg';
-    im.alt = project.title + ' trailer';
-    t.appendChild(im);
-    t.addEventListener('click', ()=> showIndex(-1));
-    thumbStrip.appendChild(t);
-  }
-
-  imgs.forEach((s, idx) => {
-    const t = document.createElement('div'); t.className = 'case-thumb'; t.dataset.index = idx;
-    const im = document.createElement('img'); im.src = s; im.alt = project.title + ' thumbnail';
-    t.appendChild(im);
-    t.addEventListener('click', ()=> showIndex(idx));
-    thumbStrip.appendChild(t);
-  });
-
-  // add prev/next buttons overlayed on main
-  const prevBtn = document.createElement('button'); prevBtn.className = 'case-nav-button case-nav-prev'; prevBtn.setAttribute('aria-label','Previous'); prevBtn.textContent = '‹';
-  const nextBtn = document.createElement('button'); nextBtn.className = 'case-nav-button case-nav-next'; nextBtn.setAttribute('aria-label','Next'); nextBtn.textContent = '›';
-  prevBtn.addEventListener('click', ()=> showIndex(currentIndex - 1));
-  nextBtn.addEventListener('click', ()=> showIndex(currentIndex + 1));
-  main.appendChild(prevBtn); main.appendChild(nextBtn);
-
-  // keyboard left/right navigation (scoped handler so we can remove it on close)
-  const navHandler = (e)=>{
-    if(e.key === 'ArrowLeft') { e.preventDefault(); showIndex(currentIndex - 1); }
-    if(e.key === 'ArrowRight') { e.preventDefault(); showIndex(currentIndex + 1); }
-  };
-  document.addEventListener('keydown', navHandler);
-  // store handler on modal for cleanup
-  modal._navHandler = navHandler;
-
-  // initial show
-  if(imgs.length > 0){ showIndex(0); } else if(trailer){ showIndex(-1); } else { showIndex(-2); }
-  // content: problem/solution/outcome
-  const exp = project.expanded || {};
-  body.innerHTML = `
-    <div class="exp-block-label">THE PROBLEM</div>
-    <p class="exp-text">${exp.problem || '—'}</p>
-    <div style="margin-top:20px"></div>
-    <div class="exp-block-label">THE SOLUTION</div>
-    <p class="exp-text">${exp.solution || '—'}</p>
-    <div style="margin-top:20px"></div>
-    <div class="exp-block-label">THE OUTCOME</div>
-    <p class="exp-text">${exp.outcome || '—'}</p>
-    <div style="margin-top:20px"></div>
-    <div class="exp-block-label">TECH STACK</div>
-    ${buildTechTags(exp.tech || project.chips.map(c=>c.label))}
-  `;
-  // open with animation class
-  modal.removeAttribute('aria-hidden');
-  modal.classList.remove('closing');
-  modal.classList.add('open');
-}
-
-function closeCaseModal(){
-  const modal = document.getElementById('case-modal');
-  // add closing state to trigger CSS animation then hide
-  modal.classList.add('closing');
-  modal.classList.remove('open');
-  const panel = modal.querySelector('.case-modal-panel');
-  if(panel){
-    const onEnd = (e)=>{ if(e.target===panel){ modal.setAttribute('aria-hidden','true'); modal.classList.remove('closing'); panel.removeEventListener('transitionend', onEnd); }};
-    panel.addEventListener('transitionend', onEnd);
-    // fallback: hide after timeout if transitionend doesn't fire
-    setTimeout(()=>{ if(modal.classList.contains('closing')){ modal.setAttribute('aria-hidden','true'); modal.classList.remove('closing'); } }, 600);
-  } else {
-    modal.setAttribute('aria-hidden','true'); modal.classList.remove('closing');
-  }
-  // remove keyboard nav handler if present
-  if(modal._navHandler){ document.removeEventListener('keydown', modal._navHandler); modal._navHandler = null; }
-}
-
-// attach click handlers for any 'Read Case Study' buttons after DOM is updated
-function attachCaseButtons(){
-  document.querySelectorAll('.proj-case-btn').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      const id = btn.dataset.id;
-      openCaseModalById(id);
-    });
-  });
-  // close interactions
-  document.addEventListener('click', e=>{
-    if(e.target.matches('#case-modal') || e.target.matches('.case-modal-backdrop') || e.target.matches('.case-modal-close')){
-      closeCaseModal();
-    }
-  });
-  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCaseModal(); });
-}
+// (Modal removed — inline expansion panel is used for details and gallery)
 
 
 // ════════════════════════════
@@ -705,11 +528,99 @@ function initExpandButtons(){
 
         setTimeout(()=>{
           card.scrollIntoView({behavior:'smooth', block:'nearest'});
+          // initialize the inline gallery for this expanded card
+          try{ setupExpandedGallery(card); }catch(e){/* ignore */}
         }, 300);
       }
     });
   });
 }
+
+function setupExpandedGallery(card){
+  if(!card) return;
+  const gallery = card.querySelector('.exp-gallery');
+  const main = card.querySelector('.exp-main-media');
+  if(!gallery || !main) return;
+  const slots = Array.from(gallery.querySelectorAll('.gallery-slot'));
+  if(slots.length === 0){
+    main.innerHTML = `<div style="padding:18px;color:var(--dimmer)">No media available</div>`;
+    return;
+  }
+
+  function showSlot(slot){
+    const type = slot.dataset.type || 'image';
+    const src = slot.dataset.src || (slot.querySelector('img') && slot.querySelector('img').src);
+    main.innerHTML = '';
+    if(type === 'trailer'){
+      if(src.includes('youtube.com') || src.includes('youtu.be')){
+        const id = src.match(/(?:v=|\/embed\/|youtu\.be\/)([^&\n?#]+)/)?.[1] || '';
+        const iframe = document.createElement('iframe'); iframe.src = `https://www.youtube.com/embed/${id}`; iframe.setAttribute('allowfullscreen',''); iframe.style.width='100%'; iframe.style.height='100%'; main.appendChild(iframe);
+      } else if(src.match(/\.(mp4|webm)$/i)){
+        const vid = document.createElement('video'); vid.src = src; vid.controls = true; vid.autoplay = false; vid.playsInline = true; vid.style.width='100%'; vid.style.height='100%'; main.appendChild(vid);
+      } else if(src.match(/\.gif$/i)){
+        const im = document.createElement('img'); im.src = src; im.alt = 'Trailer'; im.style.width='100%'; im.style.height='100%'; im.style.objectFit='cover';
+        const a = document.createElement('a'); a.href = src; a.target = '_blank'; a.rel = 'noopener'; a.appendChild(im);
+        a.addEventListener('click', function(e){ e.preventDefault(); openLightbox(src, im.alt || ''); });
+        main.appendChild(a);
+      } else {
+        const iframe = document.createElement('iframe'); iframe.src = src; iframe.setAttribute('allowfullscreen',''); iframe.style.width='100%'; iframe.style.height='100%'; main.appendChild(iframe);
+      }
+    } else {
+      const im = document.createElement('img'); im.src = src; im.alt = slot.getAttribute('alt') || 'Screenshot'; im.style.width='100%'; im.style.height='100%'; im.style.objectFit='cover';
+      const a = document.createElement('a'); a.href = src; a.target = '_blank'; a.rel = 'noopener'; a.appendChild(im);
+      a.addEventListener('click', function(e){ e.preventDefault(); openLightbox(src, im.alt || ''); });
+      main.appendChild(a);
+    }
+    slots.forEach(s=> s.classList.toggle('active', s === slot));
+  }
+
+  // wire slots
+  slots.forEach(s=>{ s.style.cursor='pointer'; s.addEventListener('click', ()=> showSlot(s)); });
+
+  // initial show: prefer trailer if present
+  const trailerSlot = slots.find(s => s.dataset.type === 'trailer');
+  if(trailerSlot) showSlot(trailerSlot); else showSlot(slots[0]);
+}
+
+// Lightbox controls for full-size viewing
+function openLightbox(src, alt){
+  const lb = document.getElementById('lightbox');
+  if(!lb) return;
+  const img = lb.querySelector('.lb-image');
+  img.src = src || '';
+  img.alt = alt || '';
+  lb.setAttribute('aria-hidden','false');
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.body.classList.add('lightbox-open');
+}
+
+function closeLightbox(){
+  const lb = document.getElementById('lightbox');
+  if(!lb) return;
+  const img = lb.querySelector('.lb-image');
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden','true');
+  // clear src after small delay to avoid flash when opening again
+  setTimeout(()=>{ img.src = ''; img.alt = ''; }, 300);
+  document.body.style.overflow = '';
+  document.body.classList.remove('lightbox-open');
+}
+
+// Wire lightbox UI events
+document.addEventListener('click', (e)=>{
+  const lb = document.getElementById('lightbox');
+  if(!lb) return;
+  // overlay click
+  if(e.target && e.target.dataset && e.target.dataset.lb === 'overlay'){
+    closeLightbox();
+  }
+  // close button
+  if(e.target && e.target.classList && e.target.classList.contains('lb-close')){
+    closeLightbox();
+  }
+});
+document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
 
 // ════════════════════════════
 // GSAP SCROLL REVEALS
