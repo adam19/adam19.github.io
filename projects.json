@@ -95,8 +95,8 @@
         "outcome": "The game launched on additional Android platforms and was licensed to PC platforms, extending its reach beyond initial expectations.",
         "tech": ["Custom Engine","iOS","Android","macOS","PC"],
         "trailer": "",
-        "images": ["img/toystory/screen1.jpg","img/toystory/screen2.jpg"],
-        "titleImage": "img/toystory/title.jpg"
+        "images": ["img/toystorydrop/screenshot01.webp","img/toystorydrop/screenshot02.webp","img/toystorydrop/screenshot03.webp","img/toystorydrop/screenshot04.webp","img/toystorydrop/screenshot05.webp"],
+        "titleImage": "img/toystorydrop/title.webp"
       }
     },
     {
@@ -125,8 +125,8 @@
         "outcome": "Improved visuals and cross-platform support enabled the game to run on additional markets without IAP.",
         "tech": ["Unity","iOS","Android"],
         "trailer": "",
-        "images": ["img/insideout/screen1.jpg"],
-        "titleImage": "img/insideout/title.jpg"
+        "images": ["img/insideoutthoughtbubbles/screenshot01.webp","img/insideoutthoughtbubbles/screenshot02.webp","img/insideoutthoughtbubbles/screenshot03.webp"],
+        "titleImage": "img/insideoutthoughtbubbles/title.webp"
       }
     },
     {
@@ -154,8 +154,8 @@
         "outcome": "Delivered final print-ready renders in days, enabling rapid iteration with art and publishing teams.",
         "tech": ["Unity","Rendering Tools","Batch Processing"],
         "trailer": "",
-        "images": ["img/ddv/house1.jpg","img/ddv/house2.jpg"],
-        "titleImage": "img/ddv/title.jpg"
+        "images": ["img/disneydreamlightvalley/image01.webp","img/disneydreamlightvalley/image02.webp","img/disneydreamlightvalley/image03.webp","img/disneydreamlightvalley/image04.webp","img/disneydreamlightvalley/image05.webp"],
+        "titleImage": "img/disneydreamlightvalley/title.webp"
       }
     },
     {
