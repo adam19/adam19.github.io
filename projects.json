@@ -184,38 +184,8 @@
         "outcome": "Title supported modern devices with improved UI and performance; shipped updates on schedule.",
         "tech": ["Unity","iOS","Asset Bundles"],
         "trailer": "",
-        "images": ["img/beauty/screen1.jpg"],
-        "titleImage": "img/beauty/title.jpg"
-      }
-    },
-    {
-      "id": "disney-dream-treats",
-      "featured": false,
-      "title": "DISNEY DREAM TREATS",
-      "studio": "The Walt Disney Company",
-      "year": "2015",
-      "role": "Engineer — UI/Platform Support",
-      "platforms": "iOS / Android",
-      "previewLabel": "DISNEY",
-      "previewSub": "THE WALT DISNEY COMPANY · MOBILE",
-      "previewColor": "#113ccf",
-      "previewGlow": "rgba(17,60,207,0.7)",
-      "previewTheme": "disney",
-      "chips": [
-        {"label": "Unity", "style": "unity-light"},
-        {"label": "iOS", "style": "ios-blue"},
-        {"label": "Android", "style": "android-green"}
-      ],
-      "tagline": null,
-      "summary": "UI and HUD updates to support wider aspect ratios and new devices, improving layout and player experience across platforms.",
-      "expanded": {
-        "problem": "UI did not adapt well to new device aspect ratios and required significant repositioning work.",
-        "solution": "Reused adaptive overlay and anchoring strategies from other titles, performed debug drawing to tune placements, and updated textures as needed.",
-        "outcome": "Updated layout launched successfully and improved visual clarity across devices.",
-        "tech": ["Unity","iOS","Android"],
-        "trailer": "",
-        "images": ["img/dreamtreats/screenshot01.png", "img/dreamtreats/screenshot02.png", "img/dreamtreats/screenshot03.jpg"],
-        "titleImage": "img/dreamtreats/title.jpg"
+        "images": ["img/beautyandthebeast/screenshot01.webp","img/beautyandthebeast/screenshot02.webp","img/beautyandthebeast/screenshot03.webp", "img/beautyandthebeast/screenshot04.webp"],
+        "titleImage": "img/beautyandthebeast/title.webp"
       }
     },
     {
@@ -244,8 +214,8 @@
         "outcome": "Multiple titles were re-released on new marketplaces with improved stability and performance.",
         "tech": ["Unity","Android","iOS","Pipeline Automation"],
         "trailer": "",
-        "images": [],
-        "titleImage": ""
+        "images": ["img/disneymobilegames/image01.webp","img/disneymobilegames/image02.webp","img/disneymobilegames/image03.webp","img/disneymobilegames/image04.webp","img/disneymobilegames/image05.webp"],
+        "titleImage": "img/disneymobilegames/title.webp"
       }
     },
     {
@@ -274,8 +244,8 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": ["img/rawdata/screenshot01.webp", "img/rawdata/screenshot02.jpg", "img/rawdata/screenshot03.jpg", "img/rawdata/screenshot04.jpg", "img/rawdata/screenshot05.jpg"],
-        "titleImage": "img/rawdata/title.jpg"
+        "images": ["img/rawdata/screenshot01.webp", "img/rawdata/screenshot02.webp", "img/rawdata/screenshot03.webp", "img/rawdata/screenshot04.webp", "img/rawdata/screenshot05.webp"],
+        "titleImage": "img/rawdata/title.webp"
       }
     },
     {
@@ -306,8 +276,8 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": ["img/xcom2/screenshot01.jpg", "img/xcom2/screenshot05.jpg"],
-        "titleImage": "img/xcom2/title.png"
+        "images": ["img/xcom2/screenshot01.webp", "img/xcom2/screenshot02.webp", "img/xcom2/screenshot03.webp", "img/xcom2/screenshot04.webp", "img/xcom2/screenshot05.webp"],
+        "titleImage": "img/xcom2/title.webp"
       }
     },
     {
