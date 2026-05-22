@@ -306,8 +306,8 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": [],
-        "titleImage": "img/vrvideoplayer/title.png"
+        "images": ["img/vrvideoplayer/AdultSwimVirtualBrainload.mp4", "img/vrvideoplayer/image01.webp", "img/vrvideoplayer/image02.webp", "img/vrvideoplayer/image03.webp", "img/vrvideoplayer/image04.webp"],
+        "titleImage": "img/vrvideoplayer/title.webp"
       }
     },
     {
@@ -335,8 +335,8 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": [],
-        "titleImage": "img/thebluvr/title.jpg"
+        "images": ["img/thebluvr/screenshot01.webp", "img/thebluvr/screenshot02.webp", "img/thebluvr/screenshot03.webp", "img/thebluvr/screenshot04.webp", "img/thebluvr/screenshot05.webp"],
+        "titleImage": "img/thebluvr/title.webp"
       }
     }
   ]
