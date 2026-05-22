@@ -29,8 +29,12 @@
         "outcome": "Complete build documentation and reproducible builds were produced for archival purposes. Although the title was later cancelled, the archive now contains a runnable process and engineering notes for future maintainers.",
         "tech": ["Unreal Engine 4","PS4 SDK","Xbox SDK","Build Automation","Localization"],
         "trailer": "",
-        "images": ["img/apes/pota01.jpg","img/apes/pota02.jpg","img/apes/pota03.jpg"],
-        "titleImage": "img/apes/title.png"
+        "images": [
+          "img/apes/pota01.webp",
+          "img/apes/pota02.webp",
+          "img/apes/pota03.webp"
+        ],
+        "titleImage": "img/apes/title.webp"
       }
     },
     {
@@ -63,7 +67,7 @@
         "images": [
           "img/starwars/screenshot01.webp",
           "img/starwars/screenshot02.webp",
-          "img/starwars/screenshot03.png"
+          "img/starwars/screenshot03.webp"
         ],
         "titleImage": "img/starwars/title.webp"
       }
@@ -95,7 +99,13 @@
         "outcome": "The game launched on additional Android platforms and was licensed to PC platforms, extending its reach beyond initial expectations.",
         "tech": ["Custom Engine","iOS","Android","macOS","PC"],
         "trailer": "",
-        "images": ["img/toystorydrop/screenshot01.webp","img/toystorydrop/screenshot02.webp","img/toystorydrop/screenshot03.webp","img/toystorydrop/screenshot04.webp","img/toystorydrop/screenshot05.webp"],
+        "images": [
+          "img/toystorydrop/screenshot01.webp",
+          "img/toystorydrop/screenshot02.webp",
+          "img/toystorydrop/screenshot03.webp",
+          "img/toystorydrop/screenshot04.webp",
+          "img/toystorydrop/screenshot05.webp"
+        ],
         "titleImage": "img/toystorydrop/title.webp"
       }
     },
@@ -125,7 +135,11 @@
         "outcome": "Improved visuals and cross-platform support enabled the game to run on additional markets without IAP.",
         "tech": ["Unity","iOS","Android"],
         "trailer": "",
-        "images": ["img/insideoutthoughtbubbles/screenshot01.webp","img/insideoutthoughtbubbles/screenshot02.webp","img/insideoutthoughtbubbles/screenshot03.webp"],
+        "images": [
+          "img/insideoutthoughtbubbles/screenshot01.webp",
+          "img/insideoutthoughtbubbles/screenshot02.webp",
+          "img/insideoutthoughtbubbles/screenshot03.webp"
+        ],
         "titleImage": "img/insideoutthoughtbubbles/title.webp"
       }
     },
@@ -154,7 +168,13 @@
         "outcome": "Delivered final print-ready renders in days, enabling rapid iteration with art and publishing teams.",
         "tech": ["Unity","Rendering Tools","Batch Processing"],
         "trailer": "",
-        "images": ["img/disneydreamlightvalley/image01.webp","img/disneydreamlightvalley/image02.webp","img/disneydreamlightvalley/image03.webp","img/disneydreamlightvalley/image04.webp","img/disneydreamlightvalley/image05.webp"],
+        "images": [
+          "img/disneydreamlightvalley/image01.webp",
+          "img/disneydreamlightvalley/image02.webp",
+          "img/disneydreamlightvalley/image03.webp",
+          "img/disneydreamlightvalley/image04.webp",
+          "img/disneydreamlightvalley/image05.webp"
+      ],
         "titleImage": "img/disneydreamlightvalley/title.webp"
       }
     },
@@ -184,7 +204,12 @@
         "outcome": "Title supported modern devices with improved UI and performance; shipped updates on schedule.",
         "tech": ["Unity","iOS","Asset Bundles"],
         "trailer": "",
-        "images": ["img/beautyandthebeast/screenshot01.webp","img/beautyandthebeast/screenshot02.webp","img/beautyandthebeast/screenshot03.webp", "img/beautyandthebeast/screenshot04.webp"],
+        "images": [
+          "img/beautyandthebeast/screenshot01.webp",
+          "img/beautyandthebeast/screenshot02.webp",
+          "img/beautyandthebeast/screenshot03.webp",
+          "img/beautyandthebeast/screenshot04.webp"
+        ],
         "titleImage": "img/beautyandthebeast/title.webp"
       }
     },
@@ -214,7 +239,13 @@
         "outcome": "Multiple titles were re-released on new marketplaces with improved stability and performance.",
         "tech": ["Unity","Android","iOS","Pipeline Automation"],
         "trailer": "",
-        "images": ["img/disneymobilegames/image01.webp","img/disneymobilegames/image02.webp","img/disneymobilegames/image03.webp","img/disneymobilegames/image04.webp","img/disneymobilegames/image05.webp"],
+        "images": [
+          "img/disneymobilegames/image01.webp",
+          "img/disneymobilegames/image02.webp",
+          "img/disneymobilegames/image03.webp",
+          "img/disneymobilegames/image04.webp",
+          "img/disneymobilegames/image05.webp"
+        ],
         "titleImage": "img/disneymobilegames/title.webp"
       }
     },
@@ -244,7 +275,13 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": ["img/rawdata/screenshot01.webp", "img/rawdata/screenshot02.webp", "img/rawdata/screenshot03.webp", "img/rawdata/screenshot04.webp", "img/rawdata/screenshot05.webp"],
+        "images": [
+          "img/rawdata/screenshot01.webp",
+          "img/rawdata/screenshot02.webp",
+          "img/rawdata/screenshot03.webp",
+          "img/rawdata/screenshot04.webp",
+          "img/rawdata/screenshot05.webp"
+        ],
         "titleImage": "img/rawdata/title.webp"
       }
     },
@@ -276,7 +313,13 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": ["img/xcom2/screenshot01.webp", "img/xcom2/screenshot02.webp", "img/xcom2/screenshot03.webp", "img/xcom2/screenshot04.webp", "img/xcom2/screenshot05.webp"],
+        "images": [
+          "img/xcom2/screenshot01.webp",
+          "img/xcom2/screenshot02.webp",
+          "img/xcom2/screenshot03.webp",
+          "img/xcom2/screenshot04.webp",
+          "img/xcom2/screenshot05.webp"
+        ],
         "titleImage": "img/xcom2/title.webp"
       }
     },
@@ -306,7 +349,13 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": ["img/vrvideoplayer/AdultSwimVirtualBrainload.mp4", "img/vrvideoplayer/image01.webp", "img/vrvideoplayer/image02.webp", "img/vrvideoplayer/image03.webp", "img/vrvideoplayer/image04.webp"],
+        "images": [
+          "img/vrvideoplayer/AdultSwimVirtualBrainload.mp4",
+          "img/vrvideoplayer/image01.webp",
+          "img/vrvideoplayer/image02.webp",
+          "img/vrvideoplayer/image03.webp",
+          "img/vrvideoplayer/image04.webp"
+        ],
         "titleImage": "img/vrvideoplayer/title.webp"
       }
     },
@@ -335,7 +384,13 @@
         "outcome": "Raw Data became one of the first VR titles to hit $1M in revenue. It set a bar for room-scale action that studios are still referencing today.",
         "tech": ["Unity", "SteamVR SDK", "IK Systems", "Spatial Audio", "Physics-Driven Combat", "Multiplayer Netcode"],
         "trailer": "",
-        "images": ["img/thebluvr/screenshot01.webp", "img/thebluvr/screenshot02.webp", "img/thebluvr/screenshot03.webp", "img/thebluvr/screenshot04.webp", "img/thebluvr/screenshot05.webp"],
+        "images": [
+          "img/thebluvr/screenshot01.webp",
+          "img/thebluvr/screenshot02.webp",
+          "img/thebluvr/screenshot03.webp",
+          "img/thebluvr/screenshot04.webp",
+          "img/thebluvr/screenshot05.webp"
+        ],
         "titleImage": "img/thebluvr/title.webp"
       }
     }
