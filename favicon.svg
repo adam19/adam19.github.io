@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><style>
+    #light-icon {
+      display: inline;
+    }
+    #dark-icon {
+      display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #light-icon {
+        display: none;
+      }
+      #dark-icon {
+        display: inline;
+      }
+    }
+  </style><g id="light-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1019)"><rect width="1000" height="1000" fill="#ffffff"></rect><g transform="matrix(2.734375,0,0,2.734375,150,150)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" viewBox="0 0 256 256" width="256" height="256"><defs>
+    <style>
+      .st0 {
+        fill: #140c16;
+      }
+
+      .st1 {
+        fill: #a78bfa;
+      }
+    </style>
+  <clipPath id="SvgjsClipPath1019"><rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect></clipPath></defs><rect class="st0" x=".22" y=".13" width="256" height="256"></rect><polygon class="st1" points="162.51 93.49 255.79 128 162.51 162.51 128 255.79 93.49 162.51 .21 128 93.49 93.49 128 .21 162.51 93.49"></polygon></svg></g></g></svg></g><g id="dark-icon"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g><g transform="matrix(3.90625,0,0,3.90625,0,0)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" viewBox="0 0 256 256" width="256" height="256"><defs>
+    <style>
+      .st0 {
+        fill: #140c16;
+      }
+
+      .st1 {
+        fill: #a78bfa;
+      }
+    </style>
+  </defs><rect class="st0" x=".22" y=".13" width="256" height="256"></rect><polygon class="st1" points="162.51 93.49 255.79 128 162.51 162.51 128 255.79 93.49 162.51 .21 128 93.49 93.49 128 .21 162.51 93.49"></polygon></svg></g></g></svg></g></svg>
