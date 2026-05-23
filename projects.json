@@ -22,19 +22,28 @@
       ],
       "tagline": "ARCHIVE / BUILD RECONSTRUCTION",
       "summary": "Recovered and rebuilt a console Unreal project with missing build instructions and documented the entire process so future engineers can reproduce builds.",
-      "expanded": {
-        "problem": "Planet of the Apes was delivered to Catalog Operations with zero build instructions. The original developers were no longer available and the console toolchains were not set up.",
-        "solution": "I determined the exact Unreal Engine and console SDK versions, rebuilt the editor and console toolchains, disabled online components per policy, updated legal/localization data, and iterated until the game built and ran on target hardware.",
-        "outcome": "Complete build documentation and reproducible builds were produced for archival purposes. Although the title was later cancelled, the archive now contains a runnable process and engineering notes for future maintainers.",
-        "tech": ["Unreal Engine 4","PS4 SDK","Xbox SDK","Build Tools"],
-        "trailer": "",
-        "images": [
-          "img/apes/pota01.webp",
-          "img/apes/pota02.webp",
-          "img/apes/pota03.webp"
-        ],
-        "titleImage": "img/apes/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Planet of the Apes was delivered to Catalog Operations with zero build instructions. The original developers were no longer available and the console toolchains were not set up."
+        },
+        {
+          "name": "solution",
+          "description": "I determined the exact Unreal Engine and console SDK versions, rebuilt the editor and console toolchains, disabled online components per policy, updated legal/localization data, and iterated until the game built and ran on target hardware."
+        },
+        {
+          "name": "outcome",
+          "description": "Complete build documentation and reproducible builds were produced for archival purposes. Although the title was later cancelled, the archive now contains a runnable process and engineering notes for future maintainers."
+        }
+      ],
+      "tech": ["Unreal Engine 4","PS4 SDK","Xbox SDK","Build Tools"],
+      "trailer": "",
+      "images": [
+        "img/apes/pota01.webp",
+        "img/apes/pota02.webp",
+        "img/apes/pota03.webp"
+      ],
+      "titleImage": "img/apes/title.webp"
     },
     {
       "id": "disney-starwars-assault-team",
@@ -57,19 +66,28 @@
       ],
       "tagline": null,
       "summary": "Updated an older Unity mobile title to run on modern Android devices and Amazon Fire tablets with improved asset pipelines to decrease load times.",
-      "expanded": {
-        "problem": "Star Wars Assault Team was aging on older Android versions and lacked compatibility for modern devices and Amazon Fire tablets.",
-        "solution": "Upgraded the project across Unity versions (stepwise), fixed API deprecations, rewrote build scripts and asset-bundling tools to reduce build time and improve load performance.",
-        "outcome": "Faster builds, improved level-load times, and successful deployments to Amazon and other marketplaces. This allowed the project to reach wider international audiences.",
-        "tech": ["Unity","Android","Pipeline Automation","Build Tools"],
-        "trailer": "",
-        "images": [
-          "img/starwars/screenshot01.webp",
-          "img/starwars/screenshot02.webp",
-          "img/starwars/screenshot03.webp"
-        ],
-        "titleImage": "img/starwars/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Star Wars Assault Team was aging on older Android versions and lacked compatibility for modern devices and Amazon Fire tablets."
+        },
+        {
+          "name": "solution",
+          "description": "Upgraded the project across Unity versions (stepwise), fixed API deprecations, rewrote build scripts and asset-bundling tools to reduce build time and improve load performance."
+        },
+        {
+          "name": "outcome",
+          "description": "Faster builds, improved level-load times, and successful deployments to Amazon and other marketplaces. This allowed the project to reach wider international audiences."
+        }
+      ],
+      "tech": ["Unity","Android","Pipeline Automation","Build Tools"],
+      "trailer": "",
+      "images": [
+        "img/starwars/screenshot01.webp",
+        "img/starwars/screenshot02.webp",
+        "img/starwars/screenshot03.webp"
+      ],
+      "titleImage": "img/starwars/title.webp"
     },
     {
       "id": "disney-toy-story-drop",
@@ -92,21 +110,30 @@
       ],
       "tagline": null,
       "summary": "Transitioned a live freemium game into Disney ownership, improved cross-platform tooling, and implemented gameplay changes to support new monetization models.",
-      "expanded": {
-        "problem": "The original developer moved on. Per contract, the title needed to be transferred to Disney and made buildable across platforms.",
-        "solution": "Worked with the original producer to transfer assets and code, produced functioning builds across platforms, and improved cross-platform tools. Implemented gameplay adjustments for a premium model and removed IAP where required.",
-        "outcome": "The game launched on additional Android platforms and was licensed to certain PC platforms, extending its reach beyond initial expectations.",
-        "tech": ["Custom Engine","Android","PC","macOS"],
-        "trailer": "",
-        "images": [
-          "img/toystorydrop/screenshot01.webp",
-          "img/toystorydrop/screenshot02.webp",
-          "img/toystorydrop/screenshot03.webp",
-          "img/toystorydrop/screenshot04.webp",
-          "img/toystorydrop/screenshot05.webp"
-        ],
-        "titleImage": "img/toystorydrop/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "The original developer moved on. Per contract, the title needed to be transferred to Disney and made buildable across platforms."
+        },
+        {
+          "name": "solution",
+          "description": "Worked with the original producer to transfer assets and code, produced functioning builds across platforms, and improved cross-platform tools. Implemented gameplay adjustments for a premium model and removed IAP where required."
+        },
+        {
+          "name": "outcome",
+          "description": "The game launched on additional Android platforms and was licensed to certain PC platforms, extending its reach beyond initial expectations."
+        }
+      ],
+      "tech": ["Custom Engine","Android","PC","macOS"],
+      "trailer": "img/toystorydrop/trailer.mp4",
+      "images": [
+        "img/toystorydrop/screenshot01.webp",
+        "img/toystorydrop/screenshot02.webp",
+        "img/toystorydrop/screenshot03.webp",
+        "img/toystorydrop/screenshot04.webp",
+        "img/toystorydrop/screenshot05.webp"
+      ],
+      "titleImage": "img/toystorydrop/title.webp"
     },
     {
       "id": "disney-inside-out",
@@ -128,19 +155,28 @@
       ],
       "tagline": null,
       "summary": "Updated an older Unity title to modern engine versions, removed IAP, and adjusted UI for newer phone aspect ratios.",
-      "expanded": {
-        "problem": "Needed to update Unity 5.x project to Unity 2017.x and transition from F2P to premium, while improving UI for newer devices.",
-        "solution": "Performed staged engine upgrades, removed IAP, adjusted UI/HUD for wider screens (iPhone X), and optimized asset bundle strategy to reduce memory usage.",
-        "outcome": "Improved visuals and cross-platform support enabled the game to run on additional markets without IAP.",
-        "tech": ["Unity","iOS","Android"],
-        "trailer": "",
-        "images": [
-          "img/insideoutthoughtbubbles/screenshot01.webp",
-          "img/insideoutthoughtbubbles/screenshot02.webp",
-          "img/insideoutthoughtbubbles/screenshot03.webp"
-        ],
-        "titleImage": "img/insideoutthoughtbubbles/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Needed to update Unity 5.x project to Unity 2017.x and transition from F2P to premium, while improving UI for newer devices."
+        },
+        {
+          "name": "solution",
+          "description": "Performed staged engine upgrades, removed IAP, adjusted UI/HUD for wider screens (iPhone X), and optimized asset bundle strategy to reduce memory usage."
+        },
+        {
+          "name": "outcome",
+          "description": "Improved visuals and cross-platform support enabled the game to run on additional markets without IAP."
+        }
+      ],
+      "tech": ["Unity","iOS","Android"],
+      "trailer": "",
+      "images": [
+        "img/insideoutthoughtbubbles/screenshot01.webp",
+        "img/insideoutthoughtbubbles/screenshot02.webp",
+        "img/insideoutthoughtbubbles/screenshot03.webp"
+      ],
+      "titleImage": "img/insideoutthoughtbubbles/title.webp"
     },
     {
       "id": "disney-dreamlight-renders",
@@ -161,21 +197,30 @@
       ],
       "tagline": null,
       "summary": "Built tools to batch-place scene assets and render high-resolution house images for a strategy guide book.",
-      "expanded": {
-        "problem": "Publisher needed clean renders of in-game houses without surrounding environments on tight timelines.",
-        "solution": "Wrote Unity scripts to place assets, set cameras, and render batches at multiple resolutions. Iterated lighting and composition quickly.",
-        "outcome": "Delivered final print-ready renders in days, enabling rapid iteration with art and publishing teams.",
-        "tech": ["Unity","Tools"],
-        "trailer": "",
-        "images": [
-          "img/disneydreamlightvalley/image01.webp",
-          "img/disneydreamlightvalley/image02.webp",
-          "img/disneydreamlightvalley/image03.webp",
-          "img/disneydreamlightvalley/image04.webp",
-          "img/disneydreamlightvalley/image05.webp"
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Publisher needed clean renders of in-game houses without surrounding environments on tight timelines."
+        },
+        {
+          "name": "solution",
+          "description": "Wrote Unity scripts to place assets, set cameras, and render batches at multiple resolutions. Iterated lighting and composition quickly."
+        },
+        {
+          "name": "outcome",
+          "description": "Delivered final print-ready renders in days, enabling rapid iteration with art and publishing teams."
+        }
       ],
-        "titleImage": "img/disneydreamlightvalley/title.webp"
-      }
+      "tech": ["Unity","Tools"],
+      "trailer": "",
+      "images": [
+        "img/disneydreamlightvalley/image01.webp",
+        "img/disneydreamlightvalley/image02.webp",
+        "img/disneydreamlightvalley/image03.webp",
+        "img/disneydreamlightvalley/image04.webp",
+        "img/disneydreamlightvalley/image05.webp"
+      ],
+      "titleImage": "img/disneydreamlightvalley/title.webp"
     },
     {
       "id": "disney-beauty-and-beast",
@@ -198,20 +243,29 @@
       ],
       "tagline": null,
       "summary": "Upgraded Unity to support iPhone X, fixed shader/asset bundle issues, and adapted HUD for new device aspect ratios.",
-      "expanded": {
-        "problem": "Game required UI adjustments for iPhone X and experienced shader glitches after engine upgrades.",
-        "solution": "Implemented an adaptive overlay for the notch, adjusted HUD anchors, and investigated shader bugs (working with Unity where necessary).",
-        "outcome": "Title supported modern devices with improved UI and performance, and shipped updates on schedule.",
-        "tech": ["Unity","iOS","Android","Shaders"],
-        "trailer": "",
-        "images": [
-          "img/beautyandthebeast/screenshot01.webp",
-          "img/beautyandthebeast/screenshot02.webp",
-          "img/beautyandthebeast/screenshot03.webp",
-          "img/beautyandthebeast/screenshot04.webp"
-        ],
-        "titleImage": "img/beautyandthebeast/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Game required UI adjustments for iPhone X and experienced shader glitches after engine upgrades."
+        },
+        {
+          "name": "solution",
+          "description": "Implemented an adaptive overlay for the notch, adjusted HUD anchors, and investigated shader bugs (working with Unity where necessary)."
+        },
+        {
+          "name": "outcome",
+          "description": "Title supported modern devices with improved UI and performance, and shipped updates on schedule."
+        }
+      ],
+      "tech": ["Unity","iOS","Android","Shaders"],
+      "trailer": "",
+      "images": [
+        "img/beautyandthebeast/screenshot01.webp",
+        "img/beautyandthebeast/screenshot02.webp",
+        "img/beautyandthebeast/screenshot03.webp",
+        "img/beautyandthebeast/screenshot04.webp"
+      ],
+      "titleImage": "img/beautyandthebeast/title.webp"
     },
     {
       "id": "disney-mobile-games",
@@ -234,21 +288,30 @@
       ],
       "tagline": null,
       "summary": "Maintained and upgraded multiple legacy Disney mobile titles for broader platform distribution and improved tooling for faster turnarounds.",
-      "expanded": {
-        "problem": "Catalog of legacy titles required updates to run on modern platforms and to meet security/policy requirements.",
-        "solution": "Upgraded engines, fixed platform-specific issues, and built tooling to automate repetitive tasks which enabled rapid packaging and deployment.",
-        "outcome": "Multiple titles were re-released on new marketplaces with improved stability and performance.",
-        "tech": ["Unity","iOS","Android","Tools"],
-        "trailer": "",
-        "images": [
-          "img/disneymobilegames/image01.webp",
-          "img/disneymobilegames/image02.webp",
-          "img/disneymobilegames/image03.webp",
-          "img/disneymobilegames/image04.webp",
-          "img/disneymobilegames/image05.webp"
-        ],
-        "titleImage": "img/disneymobilegames/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Catalog of legacy titles required updates to run on modern platforms and to meet security/policy requirements."
+        },
+        {
+          "name": "solution",
+          "description": "Upgraded engines, fixed platform-specific issues, and built tooling to automate repetitive tasks which enabled rapid packaging and deployment."
+        },
+        {
+          "name": "outcome",
+          "description": "Multiple titles were re-released on new marketplaces with improved stability and performance."
+        }
+      ],
+      "tech": ["Unity","iOS","Android","Tools"],
+      "trailer": "",
+      "images": [
+        "img/disneymobilegames/image01.webp",
+        "img/disneymobilegames/image02.webp",
+        "img/disneymobilegames/image03.webp",
+        "img/disneymobilegames/image04.webp",
+        "img/disneymobilegames/image05.webp"
+      ],
+      "titleImage": "img/disneymobilegames/title.webp"
     },
     {
       "id": "raw-data",
@@ -274,24 +337,42 @@
       ],
       "tagline": "FEATURED // LANDMARK TITLE",
       "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible, defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
-      "expanded": {
-        "gameplay":"Raw Data was the flagship VR title for Survios, and I was hired on as a gameplay engineer during the last year of the project. I was responsible for multiple aspects including analytics, cross-platform achievements (Oculus, Steam, PSVR), three different demos, and last but not least, Raw Data Arcade. All of this was built on top of plugins that were utilized and built upon for future Survios titles.",
-        "analytics":"Early in development, I was in charge of implementing analytics and reporting for Raw Data and the underlying Survios platform. We used an external data management company that I worked with to develop a UE4 plugin that sent REST calls to their backend servers. During gameplay I would aggregate all of the bits of data such as number of kills, number of deaths, time played, etc. and send the data during level transitions. If the game crashed or internet was lost, all of the data was still on the player's machine waiting to be reported. It was a flexible and reliable system that made it's way into several other Survios titles. All of this data was extremely valuable and was used to tweak and enhance gameplay for the for the final release.",
-        "achievements":"When the majority of the game was complete I was responsible for implementing Achievements for the multiple platforms Raw Data was released on including Steam, Oculus Home and Trophies for the PlayStation. Since the platforms track Achievement data in vastly different ways, we settled on storing all of the data locally, and reporting the unlocked Achievement to the platform once the threshold was reached. This made unlocking Achievements simple to implement for any platform. The thesholds were defined using a simple data container in the UE4 Editor. Designers were able to tweak the unlock requirements very easily and never needed to consult an engineer to make updates.",
-        "demos":"Throughout my time at Survios I built three different demos of the game which were deployed through different avenues. The first demo I built was for Valve to show off their HTC Vive headset in retail locations including Best Buy and Gamestop. The second demo I developed was used during Survios's largest E3 presence ever in 2017. Lines wrapped around the booth where attendees waited for up to two hours to play! The last demo I built for Raw Data now lives on the PSVR Demo Disk that came with the initial PSVR kits.",
-        "arcade": "One of the largest undertakings that I took over was Raw Data Arcade. I worked with a game designer to determine how the game should flow in a timed Arcade environment versus a typical home environment. We also gave arcade managers an easy to use interface written in Unreal Motion Graphics (UMG) to alter aspects of the game including timers, available heros, unlocks, levels, etc. Every VR arcade wanted to provide their own customized experience for their customers. In the end we delivered an outstanding product that's now a headliner in over 1000 arcades world-wide!",
-        "outcome": "Raw Data was a highly successful VR title. It became an anchor VR title in arcades. It helped build the foundation for Survios's future games.",
-        "tech": ["Unreal Engine 4", "Combat Systems", "Tools", "Arcade", "PSVR", "SteamVR", "Analytics"],
-        "trailer": "",
-        "images": [
-          "img/rawdata/screenshot01.webp",
-          "img/rawdata/screenshot02.webp",
-          "img/rawdata/screenshot03.webp",
-          "img/rawdata/screenshot04.webp",
-          "img/rawdata/screenshot05.webp"
-        ],
-        "titleImage": "img/rawdata/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "OVERVIEW",
+          "description": "Joined Survios as a gameplay engineer during Raw Data's final year — one of the flagship VR titles of the era. Owned analytics, cross-platform achievements, three major demos, and Raw Data Arcade, all built on a plugin architecture that carried forward into future Survios titles."
+        },
+        {
+          "name": "ANALYTICS",
+          "description": "Designed and shipped a UE4 analytics plugin using a third-party data backend over REST. Aggregated kill/death/session data during play and flushed on level transitions, with local persistence as a fallback for crashes or connectivity loss. The system was reliable enough to be adopted across multiple subsequent Survios titles and directly informed late-stage gameplay tuning."
+        },
+        {
+          "name": "ACHIEVEMENTS",
+          "description": "Implemented cross-platform achievements for Steam, Oculus Home, and PlayStation Trophies. Unified the wildly different platform APIs behind a single local data store — progress tracked locally, reported to the platform on threshold. Unlock thresholds were exposed as data containers in the UE4 Editor so designers could iterate without touching code."
+        },
+        {
+          "name": "DEMOS",
+          "description": "Shipped three standalone demos: an HTC Vive retail demo for Valve deployed to Best Buy and GameStop; an E3 2017 booth build where lines stretched two hours at Survios's largest E3 presence ever; and the demo included on the launch PSVR Demo Disk bundled with every initial PSVR kit."
+        },
+        {
+          "name": "ARCADE",
+          "description": "Led development of Raw Data Arcade — a timed, operator-customizable version of the game built for location-based VR. Designed the flow alongside a game designer, and built an operator dashboard in UMG giving arcade managers control over timers, heroes, unlocks, and levels with no engineering involvement. Shipped to over 1,000 arcades worldwide."
+        },
+        {
+          "name": "OUTCOME",
+          "description": "Raw Data became one of the most successful early VR titles on the market — a headliner in over 1,000 arcades globally, a landmark for room-scale multiplayer, and the technical foundation for Survios's engine and platform work on future titles."
+        }
+      ],
+      "tech": ["Unreal Engine 4", "Combat Systems", "Tools", "Arcade", "PSVR", "SteamVR", "Analytics"],
+      "trailer": "",
+      "images": [
+        "img/rawdata/screenshot01.webp",
+        "img/rawdata/screenshot02.webp",
+        "img/rawdata/screenshot03.webp",
+        "img/rawdata/screenshot04.webp",
+        "img/rawdata/screenshot05.webp"
+      ],
+      "titleImage": "img/rawdata/title.webp"
     },
     {
       "id": "xcom2",
@@ -315,21 +396,30 @@
       ],
       "tagline": null,
       "summary": "Room-scale VR combat had no established playbook. Helped build the systems framework that made physical VR combat feel credible — defining what action games in VR could be. One of the first successful room-scale multiplayer titles on the market.",
-      "expanded": {
-        "gameplay": "Skydance was brought on to help wrap on the PC version of XCom 2, and I was there to help finish implementing some UI features as well as several weapons for the single-player campaign including the Triple-Shot and the Saturation-Fire.",
-        "combat": "Implemented two major weapons: <b>Triple-Shot</b> an ability for the Sniper class to use their pistol to pop off 3 shots with high accuracy. <b>Saturation-Fire</b> (aka Shredder-Fire) a favorite ability to develop. Grenadiers use their chain-gun to fire a hail-storm of bullets in a cone shape damaging every enemy and all cover within it.",
-        "console": "I was in charge of disc installations. Problems arose due to the procedural nature of the game and digital distribution requirements. The Xbox 1 and the PlayStation 4 consoles require an initial chunk of the game to be playable within 10% of the download. We marked the tutorial mission and the Avenger to be loaded first, and blocked the loading of any other assets until the entire game finished downloading. Disc versions had the same logic. I was also in charge of modifying and updating the Unreal Frontend tools with current-gen console support. A couple of buttons, and several new RPCs (remote procedure calls) to launch tools improved developer workflows.",
-        "tech": ["Unreal Engine 3", "Combat Systems", "PS4", "Xbox 1", "Tools"],
-        "trailer": "",
-        "images": [
-          "img/xcom2/screenshot01.webp",
-          "img/xcom2/screenshot02.webp",
-          "img/xcom2/screenshot03.webp",
-          "img/xcom2/screenshot04.webp",
-          "img/xcom2/screenshot05.webp"
-        ],
-        "titleImage": "img/xcom2/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "OVERVIEW",
+          "description": "Skydance was contracted to help ship the console ports of XCOM 2. I contributed UI features, two weapons for the single-player campaign, and owned the disc/digital installation requirements for Xbox One and PlayStation 4."
+        },
+        {
+          "name": "WEAPONS",
+          "description": "Implemented two abilities: Triple-Shot — a Sniper pistol ability firing 3 high-accuracy rounds in quick succession; and Saturation Fire (aka Shredder Fire) — a Grenadier chain-gun ability that unleashes a bullet hailstorm in a cone, damaging every enemy and piece of cover within it. A satisfying one to ship."
+        },
+        {
+          "name": "CONSOLE INSTALLATION",
+          "description": "Owned disc and digital installation requirements for Xbox One and PS4, both of which mandate playability within the first 10% of a download. Solved XCOM 2's procedural generation constraints by marking the tutorial mission and Avenger as priority assets, blocking all other streaming until the full download completed. Also updated Unreal Frontend with current-gen console support — new RPCs and streamlined launcher buttons that meaningfully improved the team's daily workflow."
+        }
+      ],
+      "tech": ["Unreal Engine 3", "Combat Systems", "PS4", "Xbox 1", "Tools"],
+      "trailer": "img/xcom2/xcom2trailer.mp4",
+      "images": [
+        "img/xcom2/screenshot01.webp",
+        "img/xcom2/screenshot02.webp",
+        "img/xcom2/screenshot03.webp",
+        "img/xcom2/screenshot04.webp",
+        "img/xcom2/screenshot05.webp"
+      ],
+      "titleImage": "img/xcom2/title.webp"
     },
     {
       "id": "wevr-videoplayer",
@@ -351,20 +441,29 @@
       ],
       "tagline": null,
       "summary": "Prototyped and developed a 360 video player for the GearVR.",
-      "expanded": {
-        "problem": "Audio and video were a medium many wanted to explore in VR, but there were no established tools or pipelines. I built a 360 video player for Android that supported both monoscopic and stereoscopic videos with binaural audio support. This was used for several early WEVR projects and demos.",
-        "solution": "Created a flexible video player that allowed for multiple spherical projection formats, adjustable procedural generation for playback mesh, support for multiple spatial audio formats combined with very low-latency response to head movement.",
-        "outcome": "",
-        "tech": ["VR", "Android", "OpenGL"],
-        "trailer": "img/vrvideoplayer/AdultSwimVirtualBrainload.mp4",
-        "images": [
-          "img/vrvideoplayer/image01.webp",
-          "img/vrvideoplayer/image02.webp",
-          "img/vrvideoplayer/image03.webp",
-          "img/vrvideoplayer/image04.webp"
-        ],
-        "titleImage": "img/vrvideoplayer/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Audio and video were a medium many wanted to explore in VR, but there were no established tools or pipelines. I built a 360 video player for Android that supported both monoscopic and stereoscopic videos with binaural audio support. This was used for several early WEVR projects and demos."
+        },
+        {
+          "name": "solution",
+          "description": "Created a flexible video player that allowed for multiple spherical projection formats, adjustable procedural generation for playback mesh, support for multiple spatial audio formats combined with very low-latency response to head movement."
+        },
+        {
+          "name": "outcome",
+          "description": "The video player was used for several early WEVR projects and demos, including the Adult Swim Virtual Brainload experience. It was a valuable tool for exploring the potential of video in VR and helped pave the way for future VR video experiences."
+        }
+      ],
+      "tech": ["VR", "Android", "OpenGL"],
+      "trailer": "img/vrvideoplayer/AdultSwimVirtualBrainload.mp4",
+      "images": [
+        "img/vrvideoplayer/image01.webp",
+        "img/vrvideoplayer/image02.webp",
+        "img/vrvideoplayer/image03.webp",
+        "img/vrvideoplayer/image04.webp"
+      ],
+      "titleImage": "img/vrvideoplayer/title.webp"
     },
     {
       "id": "wevr-thebluvr",
@@ -385,28 +484,37 @@
       ],
       "tagline": null,
       "summary": "Hacked and protoyped a functional VR experience in Unity for the Oculus DK1. This was a proof of concept that eventually evolved into TheBlu, one of the first VR experiences on the market.",
-      "expanded": {
-        "problem": "Movement mechanics, low-framerates and general VR best practices were still being discovered.",
-        "solution": "Experimented with multiple movement mechanics, including Xbox 360 controller input, view-direction control and even keyboard-mouse input.",
-        "outcome": "Ultimately settled on a static viewpoint with a simple gaze-based interaction system. This was a comfortable and intuitive way to explore the underwater environments we created.",
-        "tech": ["Unity", "VR"],
-        "trailer": "",
-        "images": [
-          "img/thebluvr/screenshot01.webp",
-          "img/thebluvr/screenshot02.webp",
-          "img/thebluvr/screenshot03.webp",
-          "img/thebluvr/screenshot04.webp",
-          "img/thebluvr/screenshot05.webp"
-        ],
-        "titleImage": "img/thebluvr/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "problem",
+          "description": "Movement mechanics, low-framerates and general VR best practices were still being discovered."
+        },
+        {
+          "name": "solution",
+          "description": "Experimented with multiple movement mechanics, including Xbox 360 controller input, view-direction control and even keyboard-mouse input."
+        },
+        {
+          "name": "outcome",
+          "description": "Ultimately settled on a static viewpoint with a simple gaze-based interaction system. This was a comfortable and intuitive way to explore the underwater environments we created."
+        }
+      ],
+      "tech": ["Unity", "VR"],
+      "trailer": "",
+      "images": [
+        "img/thebluvr/screenshot01.webp",
+        "img/thebluvr/screenshot02.webp",
+        "img/thebluvr/screenshot03.webp",
+        "img/thebluvr/screenshot04.webp",
+        "img/thebluvr/screenshot05.webp"
+      ],
+      "titleImage": "img/thebluvr/title.webp"
     },
     {
       "id": "usc-mastersgamesprogram",
       "featured": false,
       "title": "USC - MASTERS GAMES PROGRAM",
       "studio": "USC",
-      "year": "2014",
+      "year": "2012 - 2014",
       "role": "Grad Student",
       "platforms": "PC / iPad / Xbox 360 / PS3",
       "previewLabel": "USC - MASTERS GAMES PROGRAM",
@@ -425,22 +533,34 @@
       ],
       "tagline": null,
       "summary": "A fun but rigorous program that covered a wide range of game development topics. Several projects across different platforms helped define my approach to game development and prepared me for the industry.",
-      "expanded": {
-        "bloom": "A 2.5D platformer built in Unity where you play as a seedling named Sprout who wields the powers of nature to take back Earth from the evil machines. A year-long project where I wore many hats including graphics developer, gameplay programmer and even tech-art project management.",
-        "streets of india": "An experiemental 3D mobile game built in Unity for iOS, and modelled after Frogger, where the player must guide their character through the busy and hectic streets of India to disarm and remove bombs set at famous landmarks. It was well received by the class and other students in the program.",
-        "software rasterizer": "Semester-long graphics project where we coded the rendering pipeline for a software rasterizer from scratch in C++; including matrices, rasterization, z-buffering, texturing, etc.",
-        "outcome": "The program was an invaluable experience that prepared me for the industry. It provided a strong foundation in game development principles and practices, and allowed me to explore different areas of game development through hands-on projects.",
-        "tech": ["Unity", "PC", "OpenGL", "PS3", "Xbox", "iOS", "Android"],
-        "trailer": "",
-        "images": [
-          "img/usc/image01.webp",
-          "img/usc/image02.webp",
-          "img/usc/image03.webp",
-          "img/usc/image04.webp",
-          "img/usc/image05.webp"
-        ],
-        "titleImage": "img/usc/title.webp"
-      }
+      "expanded": [
+        {
+          "name": "bloom",
+          "description": "A 2.5D platformer built in Unity where you play as a seedling named Sprout who wields the powers of nature to take back Earth from the evil machines. A year-long project where I wore many hats including graphics developer, gameplay programmer and even tech-art project management."
+        },
+        {
+          "name": "streets of india",
+          "description": "An experimental 3D mobile game built in Unity for iOS, and modelled after Frogger, where the player must guide their character through the busy and hectic streets of India to disarm and remove bombs set at famous landmarks. It was well received by the class and other students in the program."
+        },
+        {
+          "name": "software rasterizer",
+          "description": "Semester-long graphics project where we coded the rendering pipeline for a software rasterizer from scratch in C++; including matrices, rasterization, z-buffering, texturing, etc."
+        },
+        {
+          "name": "outcome",
+          "description": "The program was an invaluable experience that prepared me for the industry. It provided a strong foundation in game development principles and practices, and allowed me to explore different areas of game development through hands-on projects."
+        }
+      ],
+      "tech": ["Unity", "PC", "OpenGL", "PS3", "Xbox", "iOS", "Android"],
+      "trailer": "",
+      "images": [
+        "img/usc/image01.webp",
+        "img/usc/image02.webp",
+        "img/usc/image03.webp",
+        "img/usc/image04.webp",
+        "img/usc/image05.webp"
+      ],
+      "titleImage": "img/usc/title.webp"
     }
   ]
 }

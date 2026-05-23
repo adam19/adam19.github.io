@@ -481,7 +481,7 @@ section { padding:110px 52px; position:relative; }
 }
 .proj-card.wide .proj-expanded { padding:0 40px; flex-basis:100%; width:100%; }
 .proj-card.expanded .proj-expanded {
-	max-height:900px; opacity:1;
+	max-height:1600px; opacity:1;
 	padding:32px 30px 36px;
 }
 .proj-card.wide.expanded .proj-expanded { padding:32px 40px 36px; }

@@ -332,30 +332,26 @@ function buildTechTags(tech){
 }
 
 function buildExpandedPanel(project, wide){
-  const exp = project.expanded || {};
+  const items = project.expanded || []; // flat array directly
 
   // Combine trailer + screenshots into a single carousel: trailer (if present) will be first
   const mediaSection = `<div>
         <div class="exp-block-label">MEDIA</div>
         <div class="exp-main-media"></div>
-        ${buildGallery(exp.images || [], wide, exp.trailer, exp.titleImage)}
+        ${buildGallery(project.images || [], wide, project.trailer, project.titleImage)}
        </div>`;
 
   return `
     <div class="proj-expanded">
       <div class="exp-grid">
         <div>
-          <div class="exp-block-label">THE PROBLEM</div>
-          <p class="exp-text">${exp.problem}</p>
-          <div style="margin-top:20px"></div>
-          <div class="exp-block-label">THE SOLUTION</div>
-          <p class="exp-text">${exp.solution}</p>
-          <div style="margin-top:20px"></div>
-          <div class="exp-block-label">THE OUTCOME</div>
-          <p class="exp-text">${exp.outcome}</p>
-          <div style="margin-top:16px"></div>
+          ${items.map(item => `
+            <div class="exp-block-label">${item.name}</div>
+            <p class="exp-text">${item.description}</p>
+            <div style="margin-top:20px"></div>
+          `).join('')}
           <div class="exp-block-label">TECH STACK</div>
-          ${buildTechTags(exp.tech)}
+          ${buildTechTags(project.tech)}
         </div>
         <div>
           ${mediaSection}
@@ -411,7 +407,7 @@ function buildCard(project, idx){
   }
 
   // decide preview image (explicit previewImage or titleImage from expanded)
-  const previewImage = project.previewImage || (project.expanded && project.expanded.titleImage) || '';
+  const previewImage = project.previewImage || project.titleImage || '';
   // prepare label HTML (only inserted when there is no preview image)
   const labelHTML = `<div class="prev-label" style="color:${project.previewColor};text-shadow:0 0 12px rgba(255,255,255,0.06), 0 0 40px ${project.previewGlow}">${previewLines}<span class="prev-sub">${project.previewSub}</span></div>`;
 
