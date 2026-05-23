@@ -328,7 +328,7 @@ function buildChips(chips){
 }
 
 function buildTechTags(tech){
-  return `<div class="tech-tags">${tech.map(t=>`<span class="tech-tag">${t}</span>`).join('')}</div>`;
+  return `<div class="tech-tags">${tech.map(t=>`<span class="tech-tag">${t.label}</span>`).join('')}</div>`;
 }
 
 function buildExpandedPanel(project, wide){
@@ -351,7 +351,7 @@ function buildExpandedPanel(project, wide){
             <div style="margin-top:20px"></div>
           `).join('')}
           <div class="exp-block-label">TECH STACK</div>
-          ${buildTechTags(project.tech)}
+          ${buildTechTags(project.chips)}
         </div>
         <div>
           ${mediaSection}

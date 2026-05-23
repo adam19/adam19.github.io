@@ -36,7 +36,6 @@
           "description": "Complete build documentation and reproducible builds were produced for archival purposes. Although the title was later cancelled, the archive now contains a runnable process and engineering notes for future maintainers."
         }
       ],
-      "tech": ["Unreal Engine 4","PS4 SDK","Xbox SDK","Build Tools"],
       "trailer": "",
       "images": [
         "img/apes/pota01.webp",
@@ -124,7 +123,6 @@
           "description": "The game launched on additional Android platforms and was licensed to certain PC platforms, extending its reach beyond initial expectations."
         }
       ],
-      "tech": ["Custom Engine","Android","PC","macOS"],
       "trailer": "img/toystorydrop/trailer.mp4",
       "images": [
         "img/toystorydrop/screenshot01.webp",
@@ -169,7 +167,6 @@
           "description": "Improved visuals and cross-platform support enabled the game to run on additional markets without IAP."
         }
       ],
-      "tech": ["Unity","iOS","Android"],
       "trailer": "",
       "images": [
         "img/insideoutthoughtbubbles/screenshot01.webp",
@@ -211,7 +208,6 @@
           "description": "Delivered final print-ready renders in days, enabling rapid iteration with art and publishing teams."
         }
       ],
-      "tech": ["Unity","Tools"],
       "trailer": "",
       "images": [
         "img/disneydreamlightvalley/image01.webp",
@@ -257,7 +253,6 @@
           "description": "Title supported modern devices with improved UI and performance, and shipped updates on schedule."
         }
       ],
-      "tech": ["Unity","iOS","Android","Shaders"],
       "trailer": "",
       "images": [
         "img/beautyandthebeast/screenshot01.webp",
@@ -302,7 +297,6 @@
           "description": "Multiple titles were re-released on new marketplaces with improved stability and performance."
         }
       ],
-      "tech": ["Unity","iOS","Android","Tools"],
       "trailer": "",
       "images": [
         "img/disneymobilegames/image01.webp",
@@ -363,7 +357,6 @@
           "description": "Raw Data became one of the most successful early VR titles on the market — a headliner in over 1,000 arcades globally, a landmark for room-scale multiplayer, and the technical foundation for Survios's engine and platform work on future titles."
         }
       ],
-      "tech": ["Unreal Engine 4", "Combat Systems", "Tools", "Arcade", "PSVR", "SteamVR", "Analytics"],
       "trailer": "",
       "images": [
         "img/rawdata/screenshot01.webp",
@@ -410,7 +403,6 @@
           "description": "Owned disc and digital installation requirements for Xbox One and PS4, both of which mandate playability within the first 10% of a download. Solved XCOM 2's procedural generation constraints by marking the tutorial mission and Avenger as priority assets, blocking all other streaming until the full download completed. Also updated Unreal Frontend with current-gen console support — new RPCs and streamlined launcher buttons that meaningfully improved the team's daily workflow."
         }
       ],
-      "tech": ["Unreal Engine 3", "Combat Systems", "PS4", "Xbox 1", "Tools"],
       "trailer": "img/xcom2/xcom2trailer.mp4",
       "images": [
         "img/xcom2/screenshot01.webp",
@@ -455,7 +447,6 @@
           "description": "The video player was used for several early WEVR projects and demos, including the Adult Swim Virtual Brainload experience. It was a valuable tool for exploring the potential of video in VR and helped pave the way for future VR video experiences."
         }
       ],
-      "tech": ["VR", "Android", "OpenGL"],
       "trailer": "img/vrvideoplayer/AdultSwimVirtualBrainload.mp4",
       "images": [
         "img/vrvideoplayer/image01.webp",
@@ -498,7 +489,6 @@
           "description": "Ultimately settled on a static viewpoint with a simple gaze-based interaction system. This was a comfortable and intuitive way to explore the underwater environments we created."
         }
       ],
-      "tech": ["Unity", "VR"],
       "trailer": "",
       "images": [
         "img/thebluvr/screenshot01.webp",
@@ -551,7 +541,6 @@
           "description": "The program was an invaluable experience that prepared me for the industry. It provided a strong foundation in game development principles and practices, and allowed me to explore different areas of game development through hands-on projects."
         }
       ],
-      "tech": ["Unity", "PC", "OpenGL", "PS3", "Xbox", "iOS", "Android"],
       "trailer": "",
       "images": [
         "img/usc/image01.webp",
